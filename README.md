@@ -35,15 +35,15 @@ Pour la création de votre projet, vous pouvez utiliser Expo CLI ou React Native
 
 C'est un IDE intégré enligne 
 
-![snack](readme_media/snack1.png)
+![snack](readme_media/snack1.PNG)
 
 Dans la partie à droite, vous trouvez les quatre possiblités de visualisation ou disons de simulations; web, android, ios, ou sur votre portable en scannat le code QR, ci-dessous un exemple avec IOS :
 
-![snack](readme_media/snack3.png)
+![snack](readme_media/snack3.PNG)
 
 Et avec le web : 
 
-![snack](readme_media/snack2.png)
+![snack](readme_media/snack2.PNG)
 
 Il contient beaucoup plus des options et fonctionnalités veuillez les découvrir :) 
 
@@ -51,4 +51,4 @@ Il contient beaucoup plus des options et fonctionnalités veuillez les découvri
 
 C'est un autre IDE bien joli et contient de plus l'option directe d'ajout des packages comme NativeBase par exemple, tandis que dans Snack Expo afin que vous ajoutez un package il faut d'abord ajouter ça dans package.json puis l'IDE vas démarrer l'installation c'est une façon indirecte
 
-![appitr](readme_media/appitr.png)
+![appitr](readme_media/appitr.PNG)
