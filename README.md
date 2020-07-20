@@ -35,15 +35,15 @@ Pour la création de votre projet, vous pouvez utiliser Expo CLI ou React Native
 
 C'est un IDE intégré enligne 
 
-![snack](readme_media/snack1.PNG)
+![snack](readme_media/doc/snack1.PNG)
 
 Dans la partie à droite, vous trouvez les quatre possiblités de visualisation ou disons de simulations; web, android, ios, ou sur votre portable en scannat le code QR, ci-dessous un exemple avec IOS :
 
-![snack](readme_media/snack3.PNG)
+![snack](readme_media/doc/snack3.PNG)
 
 Et avec le web : 
 
-![snack](readme_media/snack2.PNG)
+![snack](readme_media/doc/snack2.PNG)
 
 Il contient beaucoup plus des options et fonctionnalités veuillez les découvrir :) 
 
@@ -51,4 +51,49 @@ Il contient beaucoup plus des options et fonctionnalités veuillez les découvri
 
 C'est un autre IDE bien joli et contient de plus l'option directe d'ajout des packages comme NativeBase par exemple, tandis que dans Snack Expo afin que vous ajoutez un package il faut d'abord ajouter ça dans package.json puis l'IDE vas démarrer l'installation c'est une façon indirecte
 
-![appitr](readme_media/appitr.PNG)
+![appitr](readme_media/doc/appitr.PNG)
+
+---
+
+### Macro-fonctionnalités : 
+#### pour comprendre la catégorisation : 
+- Couleur rouge (_must to have_) : ça concerne les fonctionnalités de base vraiment indispensables
+- Couleur jaune (_should have_) : cette priorité vient juste après, elle concerne les fonctionnalités à avoir mais pas trop indispensables au fonctionnement de l'application.
+- Couleur verte (_nice to have_) : cette couleur représente les fonctionnalités auxiliaires mais optionnelles dans l'évolution des versions.
+#### Fonctionnalités : 
+Ces fonctionnalités seront détaillées après par des work-flows.
+
+- Portée générale d'un user X : 
+
+![map](readme_media/conception/map.PNG)
+
+- Gestion de compte : 
+
+![gestion-compte](readme_media/conception/gestion_compte.PNG)
+
+- Gestion d'annonces : 
+
+![gestion-annonce](readme_media/conception/gestion_annonces.PNG)
+
+- Gestion des RDVs : 
+
+![gestion_rdv](readme_media/conception/gestion_rdv.PNG)
+
+- Satisfaction de l'utilisateur : 
+
+![satisfaction](readme_media/conception/fidelisation_satisfaction.PNG)
+
+- Pré-don du sang : 
+
+![pre_don_sang](readme_media/conception/pre-don_sang.PNG)
+
+- Post-don du sang : 
+
+![post_don_sang](readme_media/conception/post_don_sang.PNG)
+
+- Gestion bon du sang : 
+
+![gestion_bon_sang](readme_media/conception/gestion_bon_sang.PNG)
+
+![gestion_bon_sang2](readme_media/conception/gestion_bon_sang_2.PNG)
+
