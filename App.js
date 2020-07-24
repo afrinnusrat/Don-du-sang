@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TextInput } from "react-native";
+import { StyleSheet, View, TextInput,Text } from "react-native";
 import MaterialButtonViolet from "./components/MaterialButtonViolet";
 import MaterialButtonShare from "./components/MaterialButtonShare";
 
 function App(props) {
   return (
     <View style={styles.container}>
-      <TextInput placeholder="Don du sang" style={styles.textInput}></TextInput>
+      <Text style={styles.textInput}>Don du sang</Text>
       <TextInput
         placeholder="Votre Login :"
         style={styles.votreLogin}
