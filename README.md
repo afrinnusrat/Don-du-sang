@@ -1,7 +1,7 @@
 ### A propos : 
-
-![pic](assets/images/don_sang_logo.png)
-
+<span style="display:block;text-align:center">
+  <img src="assets/images/don_sang_logo.png" title="pic" width="250" height="250" />
+</span>
 Il s'agit d'une application mobile de _don du sang_ 
 
 ---- 
