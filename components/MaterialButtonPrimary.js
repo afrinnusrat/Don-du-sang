@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
-function MaterialButtonViolet(props) {
+function MaterialButtonPrimary(props) {
   return (
     <TouchableOpacity style={[styles.container, props.style]}>
-      <Text style={styles.confirmer}>{props.confirmer || "Confirmer"}</Text>
+      <Text style={styles.confirmer}>Confirmer</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#3F51B5",
+    backgroundColor: "#2196F3",
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default MaterialButtonViolet;
+export default MaterialButtonPrimary;
