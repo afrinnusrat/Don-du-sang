@@ -1,4 +1,7 @@
 ### A propos : 
+
+![pic](assets/images/don_sang_logo.png)
+
 Il s'agit d'une application mobile de _don du sang_ 
 
 ---- 
