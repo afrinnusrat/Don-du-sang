@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, TouchableOpacity, Text } from "react-native";
+import { StyleSheet, TouchableOpacity, Text, View, Linking } from "react-native";
 
 function MaterialButtonViolet(props) {
   return (
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   },
   confirmer: {
     color: "#fff",
-    fontSize: 14
+    fontSize: 14,
   }
 });
 
