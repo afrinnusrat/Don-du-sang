@@ -6,7 +6,7 @@ function MaterialButtonPrimary(props) {
     /**
      * props.newUser
      */
-    alert('Merci de nous rejoindre M.'+props.newUser.firstName)
+    alert('Merci de nous rejoindre '+props.newUser.firstName)
   }
   return (
     <TouchableOpacity style={[styles.container, props.style]} onPress={createUser}>
