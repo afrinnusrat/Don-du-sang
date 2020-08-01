@@ -4,7 +4,7 @@ import { StyleSheet, View, TextInput } from "react-native";
 function MaterialUnderlineTextbox1(props) {
   return (
     <View style={[styles.container, props.style]}>
-      <TextInput placeholder="Prénom :" style={styles.inputStyle}></TextInput>
+      <TextInput placeholder="Prénom :" style={styles.inputStyle} onChangeText={props.onChangeFName}></TextInput>
     </View>
   );
 }

@@ -7,6 +7,7 @@ function MaterialUnderlineTextbox2(props) {
       <TextInput
         placeholder="Téléphone :"
         style={styles.inputStyle}
+        onChangeText={props.onChangePhoneNumber}
       ></TextInput>
     </View>
   );

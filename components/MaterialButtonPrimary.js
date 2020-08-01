@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
 function MaterialButtonPrimary(props) {
+  const createUser=()=>{
+    /**
+     * props.newUser
+     */
+    alert('Merci de nous rejoindre M.'+props.newUser.firstName)
+  }
   return (
-    <TouchableOpacity style={[styles.container, props.style]}>
+    <TouchableOpacity style={[styles.container, props.style]} onPress={createUser}>
       <Text style={styles.confirmer}>Confirmer</Text>
     </TouchableOpacity>
   );

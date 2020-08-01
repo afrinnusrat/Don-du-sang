@@ -8,6 +8,15 @@ import MaterialButtonPrimary from "../components/MaterialButtonPrimary";
 import SignIn from "./SignIn";
 function SignUp(props) {
     const [firstTime, setFirstTime] = React.useState(true);
+    const [user,setUser]=React.useState({
+        firstName:"",lastName:"",password:"",birthDate:"",phoneNumber:""
+    });
+    const onChangeFName=(text)=>setUser({...user,firstName:text});
+    const onChangeLName=(text)=>setUser({...user,lastName:text});
+    const onChangePassword=(text)=>setUser({...user,password:text});
+    const onChangeBirthDate=(text)=>setUser({...user,birthDate:text});
+    const onChangePhoneNumber=(text)=>setUser({...user,phoneNumber:text});
+    
     if (firstTime) {
         return (
             <View style={styles.container}>
@@ -20,18 +29,23 @@ function SignUp(props) {
                     ></Image>
                 </View>
                 <MaterialUnderlineTextbox
+                    onChangeLName={onChangeLName}
                     style={styles.materialUnderlineTextbox1}
                 ></MaterialUnderlineTextbox>
                 <MaterialRightIconTextbox
+                    onChangePsswd={onChangePassword}
                     style={styles.materialRightIconTextbox1}
                 ></MaterialRightIconTextbox>
                 <MaterialUnderlineTextbox1
+                    onChangeFName={onChangeFName}
                     style={styles.materialUnderlineTextbox1}
                 ></MaterialUnderlineTextbox1>
                 <MaterialUnderlineTextbox2
+                    onChangePhoneNumber={onChangePhoneNumber}
                     style={styles.materialUnderlineTextbox2}
                 ></MaterialUnderlineTextbox2>
                 <MaterialButtonPrimary
+                    newUser={user}
                     style={styles.materialButtonPrimary}
                 ></MaterialButtonPrimary>
                 <Text style={{ left: 115, position: "relative", top: 20 }} onPress={() => setFirstTime(false)}>Vous avez un compte ?</Text>
