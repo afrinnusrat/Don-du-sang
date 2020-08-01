@@ -6,13 +6,22 @@ import MaterialRightIconTextbox from "../components/MaterialRightIconTextbox";
 import MaterialUnderlineTextbox3 from "../components/MaterialUnderlineTextbox3";
 import SignUp from "./SignUp";
 function SignIn(props) {
-    const [firstTime,setFirstTime]=React.useState(false);
-    if(firstTime){
+    const [firstTime, setFirstTime] = React.useState(false);
+    const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
+    const onChangeLogin = (text) => {
+        setUserInfos({ ...userInfos, login: text });
+    };
+    const onChangePsswd = (text) => {
+        setUserInfos({ ...userInfos, password: text });
+    }
+    if (firstTime) {
         return <SignUp />
-    }else{
+    } else {
         return (
             <View style={styles.container}>
                 <MaterialButtonViolet
+                    password={userInfos.password}
+                    login={userInfos.login}
                     style={styles.materialButtonViolet}
                 ></MaterialButtonViolet>
                 <Text style={{ left: 135, position: "relative", top: 20 }} onPress={() => setFirstTime(true)}>Pas de compte ?</Text>
@@ -28,15 +37,17 @@ function SignIn(props) {
                     ></Image>
                 </View>
                 <MaterialRightIconTextbox
+                    onChangePsswd={onChangePsswd}
                     style={styles.materialRightIconTextbox1}
                 ></MaterialRightIconTextbox>
                 <MaterialUnderlineTextbox3
+                    onChangeLogin={onChangeLogin}
                     style={styles.materialUnderlineTextbox3}
                 ></MaterialUnderlineTextbox3>
             </View>
         );
     }
-    
+
 }
 
 const styles = StyleSheet.create({

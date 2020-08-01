@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 function MaterialRightIconTextbox(props) {
   return (
     <View style={[styles.container, props.style]}>
-      <TextInput placeholder="Password" style={styles.textInput}></TextInput>
+      <TextInput placeholder="Password" style={styles.textInput} onChangeText={props.onChangePsswd}></TextInput>
       <Icon name="eye" style={styles.iconStyle}></Icon>
     </View>
   );
