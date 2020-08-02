@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { StyleSheet, View} from "react-native";
-import SignIn from "./features/SignIn";
-import SignUp from "./features/SignUp";
+import SignIn from "./features/signIn/SignIn";
+import SignUp from "./features/signUp/SignUp";
 function App() {
   return (
     <View style={styles.container}>
-      <SignIn />
+      <SignUp />
     </View>
   );
 }
