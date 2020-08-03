@@ -4,43 +4,31 @@ import SignIn from "../signIn/SignIn";
 //
 import CustomInputText from "../../generic/CustomInputText";
 import CustomButton from "../../generic/CustomButton";
-import CustomBtnIcon from "../../generic/CustomBtnIcon";
 //
-import styles from "./styling"
+import styles from "./styling";
+import BirthPicker from "./steps/BirthPicker";
+import PersInfo from "./steps/PersInfo";
+
 function SignUp() {
-    const [firstTime, setFirstTime] = React.useState(true);
-    const [user,setUser]=React.useState({
-        firstName:"",lastName:"",password:"",birthDate:"",phoneNumber:""
+    const [firstStep,setFirstStep]=React.useState(true);
+    const [user, setUser] = React.useState({
+        firstName: "", lastName: "", password: "", birthDate: new Date(), phoneNumber: "",gender:""
     });
-    const onChangeFName=(text)=>setUser({...user,firstName:text});
-    const onChangeLName=(text)=>setUser({...user,lastName:text});
-    const onChangePassword=(text)=>setUser({...user,password:text});
-    const onChangeBirthDate=(text)=>setUser({...user,birthDate:text});
-    const onChangePhoneNumber=(text)=>setUser({...user,phoneNumber:text});
-    const createUser=()=>{
-        alert("Merci de nous rejoindre "+user.firstName);
-    }
-    if (firstTime) {
+    const onChangeFName = (text) => setUser({ ...user, firstName: text });
+    const onChangeLName = (text) => setUser({ ...user, lastName: text });
+    const onChangePassword = (text) => setUser({ ...user, password: text });
+    const onChangeBirthDate = (text) => setUser({ ...user, birthDate: text });
+    const onChangePhoneNumber = (text) => setUser({ ...user, phoneNumber: text });
+    const onChangeGender=(text)=>setUser({...user,gender:text});
+    
+    if (firstStep) {
         return (
-            <View style={styles.container}>
-                <View style={styles.sloganContainer}>
-                    <Text style={styles.sloganClass}>Don du sang</Text>
-                    <Image
-                        source={require("../../assets/images/blood_donation.png")}
-                        resizeMode="contain"
-                        style={styles.image1}
-                    ></Image>
-                </View>
-                <CustomInputText style={styles.nameClass} onChangeText={onChangeLName} placeholder="Nom"></CustomInputText>
-                <CustomInputText style={styles.nameClass} onChangeText={onChangeFName} placeholder="Prenom"></CustomInputText>
-                <CustomInputText style={styles.psswdClass} onChangeText={onChangePassword} isPassword placeholder="Mot de passe" withIcon></CustomInputText>
-                <CustomInputText style={styles.phoneClass} onChangeText={onChangePhoneNumber} placeholder="Téléphone"></CustomInputText>
-                <CustomButton text="Confirmer" style={styles.confirmClass} action={createUser}></CustomButton>
-                <Text style={{ position: "relative", top: 20 }} onPress={() => setFirstTime(false)}>Vous avez un compte ?</Text>
+            <View>
+                <PersInfo user={user} action={()=>setFirstStep(false)} onChangeFName={onChangeFName} onChangeLName={onChangeLName} onChangePassword={onChangePassword} onChangePhoneNumber={onChangePhoneNumber} onChangeGender={onChangeGender} />
             </View>
         );
     } else {
-        return <SignIn />
+        return <BirthPicker birthDate={user.birthDate} onChangeBirthDate={onChangeBirthDate} />
     }
 
 }
