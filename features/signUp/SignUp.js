@@ -26,7 +26,7 @@ function SignUp() {
                 <View style={styles.sloganContainer}>
                     <Text style={styles.sloganClass}>Don du sang</Text>
                     <Image
-                        source={require("../../assets/images/don_sang_logo.png")}
+                        source={require("../../assets/images/blood_donation.png")}
                         resizeMode="contain"
                         style={styles.image1}
                     ></Image>
