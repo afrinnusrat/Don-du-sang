@@ -5,7 +5,7 @@ export default StyleSheet.create({
         flex: 1,
         alignItems:"center"
     },
-    donDuSang1: {
+    sloganClass: {
         marginLeft:7,
         top: 0,
         position: "absolute",
@@ -21,7 +21,7 @@ export default StyleSheet.create({
         height: 112,
         position: "absolute"
     },
-    donDuSang1Stack: {
+    sloganContainer: {
         width: 146,
         height: 154,
         marginTop: 86,

@@ -16,7 +16,7 @@ function App() {
   } else {
     return (
       <View style={styles.container}>
-        <Text style={styles.donDuSang}>Don du sang</Text>
+        <Text style={styles.sloganClass}>Don du sang</Text>
         <Image
           source={require("./assets/images/don_sang_logo.png")}
           resizeMode="contain"

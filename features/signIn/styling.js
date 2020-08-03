@@ -14,14 +14,30 @@ export default StyleSheet.create({
         borderColor: "#000000",
         borderRadius: 16,
         marginTop: 20,
+        shadowColor: "rgba(0,0,0,1)",
+        shadowOffset: {
+            width: 3,
+            height: 3
+        },
+        elevation: 5,
+        shadowOpacity: 0.66,
+        shadowRadius: 0,
     },
     shareBtn: {
         height: 56,
         width: 56,
         backgroundColor: "rgba(68,76,137,1)",
         marginTop: 60,
+        shadowColor: "rgba(0,0,0,1)",
+        shadowOffset: {
+            width: 3,
+            height: 3
+        },
+        elevation: 5,
+        shadowOpacity: 0.66,
+        shadowRadius: 0,
     },
-    donDuSang1: {
+    sloganClass: {
         top: 10,
         marginLeft:25,
         position: "relative",
@@ -37,7 +53,7 @@ export default StyleSheet.create({
         height: 166,
         position: "absolute"
     },
-    donDuSang1Stack: {
+    sloganContainer: {
         width: 175,
         height: 200,
         marginTop: 70,
