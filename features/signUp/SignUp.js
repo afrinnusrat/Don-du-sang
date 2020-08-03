@@ -36,7 +36,7 @@ function SignUp() {
                 <CustomInputText style={styles.psswdClass} onChangeText={onChangePassword} isPassword placeholder="Mot de passe" withIcon></CustomInputText>
                 <CustomInputText style={styles.phoneClass} onChangeText={onChangePhoneNumber} placeholder="Téléphone"></CustomInputText>
                 <CustomButton text="Confirmer" style={styles.confirmClass} action={createUser}></CustomButton>
-                <Text style={{ left: 115, position: "relative", top: 20 }} onPress={() => setFirstTime(false)}>Vous avez un compte ?</Text>
+                <Text style={{ position: "relative", top: 20 }} onPress={() => setFirstTime(false)}>Vous avez un compte ?</Text>
             </View>
         );
     } else {

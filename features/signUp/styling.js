@@ -2,9 +2,11 @@ import {StyleSheet} from 'react-native'
 
 export default StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        alignItems:"center"
     },
     donDuSang1: {
+        marginLeft:7,
         top: 0,
         position: "absolute",
         fontFamily: "alegreya-sc-700",
@@ -12,11 +14,9 @@ export default StyleSheet.create({
         height: 46,
         width: 141,
         fontSize: 22,
-        left: 5
     },
     image1: {
         top: 42,
-        left: 0,
         width: 142,
         height: 112,
         position: "absolute"
@@ -25,7 +25,6 @@ export default StyleSheet.create({
         width: 146,
         height: 154,
         marginTop: 86,
-        marginLeft: 112
     },
     nameClass: {
         height: 43,
@@ -34,7 +33,6 @@ export default StyleSheet.create({
         borderColor: "#000000",
         borderRadius: 12,
         marginTop: 20,
-        marginLeft: 55
     },
     psswdClass: {
         width: 265,
@@ -43,7 +41,6 @@ export default StyleSheet.create({
         borderColor: "#000000",
         borderRadius: 12,
         marginTop: 20,
-        marginLeft: 55
     },
     phoneClass: {
         height: 43,
@@ -52,7 +49,6 @@ export default StyleSheet.create({
         borderColor: "#000000",
         borderRadius: 12,
         marginTop: 20,
-        marginLeft: 55
     },
     confirmClass: {
         height: 36,
@@ -68,6 +64,5 @@ export default StyleSheet.create({
         shadowRadius: 0,
         backgroundColor: "rgba(66,70,139,1)",
         marginTop: 20,
-        marginLeft: 133
     }
 });

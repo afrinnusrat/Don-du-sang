@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
+import { View, Text, Image } from "react-native";
 import SignUp from "../signUp/SignUp";
 //
 import CustomButton from "../../generic/CustomButton";
@@ -7,7 +7,8 @@ import CustomInputText from "../../generic/CustomInputText";
 import CustomBtnIcon from "../../generic/CustomBtnIcon";
 //
 import styles from "./styling";
-function SignIn() {
+
+export default function SignIn() {
     const [firstTime, setFirstTime] = React.useState(false);
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
     const onChangeLogin = (text) => {
@@ -16,10 +17,10 @@ function SignIn() {
     const onChangePsswd = (text) => {
         setUserInfos({ ...userInfos, password: text });
     }
-    const connexion=()=>{
-        if(userInfos.login==="Tomas" && userInfos.password==="aaa"){
+    const connexion = () => {
+        if (userInfos.login === "Tomas" && userInfos.password === "aaa") {
             alert("Bienvenue !!");
-        }else{
+        } else {
             alert("Une Mauvaise Saisie");
         }
     }
@@ -39,13 +40,9 @@ function SignIn() {
                 <CustomInputText style={styles.loginInput} placeholder="Login :" withIcon={false} onChangeText={onChangeLogin}></CustomInputText>
                 <CustomInputText style={styles.passwordInput} isPassword placeholder="Mot de passe :" withIcon={true} onChangeText={onChangePsswd}></CustomInputText>
                 <CustomButton action={connexion} text="Confirmer" style={styles.confirmBtn}></CustomButton>
-                <Text style={{ left: 135, position: "relative", top: 20 }} onPress={() => setFirstTime(true)}>Pas de compte ?</Text>
+                <Text style={{ position: "relative", top: 20 }} onPress={() => setFirstTime(true)}>Pas de compte ?</Text>
                 <CustomBtnIcon style={styles.shareBtn} iconName="share"></CustomBtnIcon>
             </View>
         );
     }
-
 }
-
-
-export default SignIn;
