@@ -1,11 +1,5 @@
-import React, { Component } from "react";
-import { StyleSheet, View, Text, Image } from "react-native";
-import SignIn from "../signIn/SignIn";
-//
-import CustomInputText from "../../generic/CustomInputText";
-import CustomButton from "../../generic/CustomButton";
-//
-import styles from "./styling";
+import React from "react";
+import {  View } from "react-native";
 import BirthPicker from "./steps/BirthPicker";
 import PersInfo from "./steps/PersInfo";
 
