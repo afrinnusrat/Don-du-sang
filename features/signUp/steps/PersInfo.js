@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, Image } from "react-native";
 import { Picker } from '@react-native-community/picker';
 
-import SignIn from "../../signIn/SignIn";
+import SignIn from "../../signIn";
 //
 import CustomInputText from "../../../generic/CustomInputText";
 import CustomButton from "../../../generic/CustomButton";

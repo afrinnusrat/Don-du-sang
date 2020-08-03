@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Image } from "react-native";
-import SignUp from "../signUp/SignUp";
+import SignUp from "../signUp";
 //
 import CustomButton from "../../generic/CustomButton";
 import CustomInputText from "../../generic/CustomInputText";
