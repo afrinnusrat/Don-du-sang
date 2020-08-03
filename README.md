@@ -1,7 +1,7 @@
 ### A propos : 
 <p align="center">
   <a href="https://github.com/BLemine/">
-    <img alt="Gatsby" src="assets/images/don_sang_logo.png" width="250" />
+    <img alt="don_sang" src="assets/images/blood_donation.png" width="250" />
   </a>
 </p>
 Il s'agit d'une application mobile de _don du sang_ 
