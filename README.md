@@ -17,25 +17,41 @@ Il s'agit d'une application mobile de _don du sang_
 #### Screen-shots (to be updated) : 
 - **Accueil** :
 
-![accueil](readme_media/doc/home_screen.PNG)
+<p align="center">
+  <a href="https://github.com/BLemine/">
+    <img alt="accueil" src="readme_media/doc/home_screen.png" width="250" />
+  </a>
+</p>
 
 ---
 
 - **Authentification** : 
 
-![authentification](readme_media/doc/signIn_screen.PNG)
+<p align="center">
+  <a href="https://github.com/BLemine/">
+    <img alt="authentification" src="readme_media/doc/signIn_screen.png" width="250" />
+  </a>
+</p>
 
 ---
 - **Création de compte**
   - étape 1 :
 
-![creation_compte](readme_media/doc/signUp_screen_1.PNG)
+<p align="center">
+  <a href="https://github.com/BLemine/">
+    <img alt="creation_compte" src="readme_media/doc/signUp_screen_1.png" width="250" />
+  </a>
+</p>
 
 ---
 
   - étape 2 : 
 
-![creation_compte](readme_media/doc/signUp_screen_2.PNG)
+<p align="center">
+  <a href="https://github.com/BLemine/">
+    <img alt="creation_compte" src="readme_media/doc/signUp_screen_2.png" width="250" />
+  </a>
+</p>
 
 ---
 
