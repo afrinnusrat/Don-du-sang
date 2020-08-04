@@ -15,47 +15,25 @@ Il s'agit d'une application mobile de _don du sang_
 - l'application sera par la suite déployée en mode production qui augmente bien la performance
 
 #### Screen-shots (to be updated) : 
-- **Accueil** :
 
 <p align="center">
-  <a href="https://github.com/BLemine/">
-    <img alt="accueil" src="readme_media/doc/home_screen.png" width="250" />
+  <a href="https://github.com/BLemine/" style="display:block-inline">
+    <img alt="creation_compte" src="readme_media/doc/home_screen.png" width="150" />
+  </a>
+  <a href="https://github.com/BLemine/" style="display:block-inline">
+    <img alt="creation_compte" src="readme_media/doc/signIn_screen.png" width="150" />
+  </a>
+  <a href="https://github.com/BLemine/" style="display:block-inline">
+    <img alt="creation_compte" src="readme_media/doc/signUp_screen_1.png" width="150" />
+  </a>
+  <a href="https://github.com/BLemine/" style="display:block-inline">
+    <img alt="creation_compte" src="readme_media/doc/signUp_screen_2.png" width="150" />
   </a>
 </p>
 
 ---
 
-- **Authentification** : 
-
-<p align="center">
-  <a href="https://github.com/BLemine/">
-    <img alt="authentification" src="readme_media/doc/signIn_screen.png" width="250" />
-  </a>
-</p>
-
----
-- **Création de compte**
-  - étape 1 :
-
-<p align="center">
-  <a href="https://github.com/BLemine/">
-    <img alt="creation_compte" src="readme_media/doc/signUp_screen_1.png" width="250" />
-  </a>
-</p>
-
----
-
-  - étape 2 : 
-
-<p align="center">
-  <a href="https://github.com/BLemine/">
-    <img alt="creation_compte" src="readme_media/doc/signUp_screen_2.png" width="250" />
-  </a>
-</p>
-
----
-
-### Fonctionnalités : 
+### **Fonctionnalités** : 
 #### pour comprendre la catégorisation : 
 - Couleur rouge (_must to have_) : ça concerne les fonctionnalités de base vraiment indispensables
 - Couleur jaune (_should have_) : cette priorité vient juste après, elle concerne les fonctionnalités à avoir mais pas trop indispensables au fonctionnement de l'application.
