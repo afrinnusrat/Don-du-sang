@@ -1,4 +1,4 @@
-### A propos : 
+### A propos :eyes: : 
 <p align="center">
   <a href="https://github.com/BLemine/">
     <img alt="don_sang" src="assets/images/blood_donation.png" width="250" />
@@ -9,10 +9,6 @@ Il s'agit d'une application mobile de _don du sang_
 ---- 
 ### Guide de configuration pour les contributeurs : 
 [Visitez la Note ici](https://www.evernote.com/shard/s447/sh/c016f3cd-b205-9843-5623-f9dd62a4edb4/4762d565b85b2bc0567f205fe16e3d7a)
-
-#### Pour une Performance meilleure : 
-- veuillez désactiver le mode **JS Dev Mode** : veuillez faire un shake de votre portable, selectionnez "settings" puis décochez "JS Dev Mode"
-- l'application sera par la suite déployée en mode production qui augmente bien la performance
 
 #### Screen-shots (to be updated) : 
 
@@ -30,6 +26,13 @@ Il s'agit d'une application mobile de _don du sang_
     <img alt="creation_compte" src="readme_media/doc/signUp_screen_2.png" width="150" />
   </a>
 </p>
+
+---
+
+
+#### Pour une performance meilleure : 
+- veuillez désactiver le mode **JS Dev Mode** : veuillez faire un shake de votre portable, selectionnez "settings" puis décochez "JS Dev Mode"
+- l'application sera par la suite déployée en mode production qui augmente bien la performance
 
 ---
 

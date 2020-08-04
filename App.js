@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
-import SignIn from "./features/signIn";
-import SignUp from "./features/signUp";
+import SignIn from "./scenes/signIn";
+import SignUp from "./scenes/signUp";
 //
 import CustomButton from "./generic/CustomButton";
 //
