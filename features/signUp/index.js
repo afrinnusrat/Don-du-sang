@@ -6,7 +6,7 @@ import PersInfo from "./steps/PersInfo";
 function SignUp() {
     const [firstStep,setFirstStep]=React.useState(true);
     const [user, setUser] = React.useState({
-        firstName: "", lastName: "", password: "", birthDate: new Date(), phoneNumber: "",gender:""
+        firstName: "", lastName: "", password: "", birthDate: new Date(), phoneNumber: "",gender:"Homme"
     });
     const onChangeFName = (text) => setUser({ ...user, firstName: text });
     const onChangeLName = (text) => setUser({ ...user, lastName: text });

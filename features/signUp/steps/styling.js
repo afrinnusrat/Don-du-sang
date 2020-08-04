@@ -66,8 +66,9 @@ export default StyleSheet.create({
         marginTop: 20,
     },
     genderPicker: {
-        width: 265,
+        marginTop: 20, width: 265, height: 40,
         borderWidth: 1,
-        borderColor: "red", lineHeight: 16
+        borderRadius: 12,
+        borderColor: "black", lineHeight: 16
     }
 });
