@@ -31,9 +31,9 @@ Il s'agit d'une application mobile de _don du sang_
 
 
 #### Pour une performance meilleure : 
-- veuillez désactiver le mode **JS Dev Mode** : veuillez faire un shake de votre portable, selectionnez "settings" puis décochez "JS Dev Mode"
-- l'application sera par la suite déployée en mode production qui augmente bien la performance
-
+- veuillez désactiver le mode **JS Dev Mode** : veuillez faire un shake de votre portable, selectionnez "settings" puis décochez "JS Dev Mode".
+- l'application sera par la suite déployée en mode production qui augmente bien la performance.
+- mettez en commentaire tout "console.log" dans votre code.
 ---
 
 ### **Fonctionnalités** : 
