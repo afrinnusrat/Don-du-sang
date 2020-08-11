@@ -8,7 +8,7 @@ export default StyleSheet.create({
     },
     confirmBtn: {
         height: 48,
-        width: 150,
+        width: 265,
         backgroundColor: "rgba(65,80,123,1)",
         borderWidth: 0,
         borderColor: "#000000",

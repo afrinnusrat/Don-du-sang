@@ -52,7 +52,7 @@ export default StyleSheet.create({
     },
     confirmClass: {
         height: 36,
-        width: 100,
+        width: 265,
         borderRadius: 13,
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {

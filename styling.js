@@ -22,7 +22,7 @@ export default StyleSheet.create({
     },
     signInClass: {
         height: 44,
-        width: 200,
+        width: 280,
         backgroundColor: "#D0021B",
         borderRadius: 12,
         shadowColor: "rgba(121,107,107,1)",
@@ -37,7 +37,7 @@ export default StyleSheet.create({
     },
     signUpClass: {
         height: 44,
-        width: 200,
+        width: 280,
         backgroundColor: "#144177",
         borderRadius: 12,
         shadowColor: "rgba(121,107,107,1)",
@@ -48,6 +48,6 @@ export default StyleSheet.create({
         elevation: 5,
         shadowOpacity: 1,
         shadowRadius: 0,
-        marginTop: 40,
+        marginTop: 30,
     }
 });
