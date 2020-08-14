@@ -1,39 +1,31 @@
-import React, { Component } from "react";
-import { StyleSheet, TouchableOpacity, Text } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import React from 'react';
+import {Text, StyleSheet, TouchableOpacity} from 'react-native';
+import colors from '../config/colors';
 
-function CustomButton(props) {
-    return (
-        <TouchableOpacity style={[styles.container, props.style]} onPress={props.action}>
-            {props.icon &&<Icon name={props.iconName} style={styles.icon}></Icon>}
-            {!props.icon && <Text style={styles.confirmer}>{props.text}</Text>}
-        </TouchableOpacity>
-    );
+function AppButton({title, onPress, color}) {
+  return (
+    <TouchableOpacity
+      style={[styles.button, {backgroundColor: color}]}
+      onPress={onPress}>
+      <Text style={styles.text}>{title}</Text>
+    </TouchableOpacity>
+  );
 }
-
 const styles = StyleSheet.create({
-    container: {
-        backgroundColor: "#2196F3",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "row",
-        borderRadius: 2,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1
-        },
-        shadowOpacity: 0.35,
-        shadowRadius: 5,
-        elevation: 2,
-        minWidth: 88,
-        paddingLeft: 16,
-        paddingRight: 16
-    },
-    confirmer: {
-        color: "#fff",
-        fontSize: 14
-    }
+  button: {
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 10,
+    marginVertical: 10,
+    width: '100%',
+  },
+  text: {
+    color: colors.white,
+    fontSize: 20,
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+  },
 });
 
-export default CustomButton;
+export default AppButton;
