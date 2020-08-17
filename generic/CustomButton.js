@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
         paddingRight: 16
     },
     confirmer: {
-        color: "#fff",
+        color: "white",
         fontSize: 14
     }
 });
