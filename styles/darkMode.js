@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "rgba(255,254,254,1)",
+        backgroundColor: "black",
         alignItems: "center"
     },
     sloganClass: {
@@ -17,15 +17,16 @@ export default StyleSheet.create({
         alignSelf: "center"
     },
     image: {
-        width: 200,
-        height: 200,
+        marginTop: 150,
+        width: 270,
+        height: 240,
     },
     signInClass: {
         height: 44,
         width: 280,
         backgroundColor: "#D0021B",
         borderRadius: 12,
-        shadowColor: "rgba(121,107,107,1)",
+        shadowColor: "white",
         shadowOffset: {
             width: 3,
             height: 3
@@ -33,14 +34,14 @@ export default StyleSheet.create({
         elevation: 5,
         shadowOpacity: 1,
         shadowRadius: 0,
-        marginTop: 107,
+        marginTop: 80,
     },
     signUpClass: {
         height: 44,
         width: 280,
         backgroundColor: "#144177",
         borderRadius: 12,
-        shadowColor: "rgba(121,107,107,1)",
+        shadowColor: "rgba(155,155,155,1)",
         shadowOffset: {
             width: 3,
             height: 3
@@ -49,5 +50,35 @@ export default StyleSheet.create({
         shadowOpacity: 1,
         shadowRadius: 0,
         marginTop: 30,
+    },
+    lightDarkSwitch: {
+        fontSize: 40,
+        position: "absolute",
+        top: 15,
+        right: 15
+    },
+    languageIcon: {
+        fontSize: 40,
+        position: "absolute",
+        top: 15,
+        left: 15
+    },
+    humanGreetingIcon: {
+        position: "absolute",
+        fontSize: 40,
+        bottom: 40,
+        left: 45
+    },
+    starIcon: {
+        position: "absolute",
+        fontSize: 40,
+        bottom: 40,
+        left: "45%"
+    },
+    shareIcon: {
+        position: "absolute",
+        fontSize: 40,
+        bottom: 40,
+        right: 40
     }
 });
