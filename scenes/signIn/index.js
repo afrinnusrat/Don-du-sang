@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Image } from "react-native";
+import { Toast } from "native-base";
 import SignUp from "../signUp";
 //
 import CustomButton from "../../generic/CustomButton";
@@ -18,10 +19,21 @@ export default function SignIn() {
         setUserInfos({ ...userInfos, password: text });
     }
     const connexion = () => {
+        // gotta add axios here
+
+        //
         if (userInfos.login === "Tomas" && userInfos.password === "aaa") {
-            alert("Bienvenue !!");
+            Toast.show({
+                text: "Bienvenue!",
+                buttonText: "Okay",
+                position: "bottom"
+            });
         } else {
-            alert("Une Mauvaise Saisie");
+            Toast.show({
+                text: "Une Mauvaise Saisie!",
+                buttonText: "Okay",
+                position: "bottom"
+            });
         }
     }
     if (firstTime) {
