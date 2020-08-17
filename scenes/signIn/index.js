@@ -26,13 +26,15 @@ export default function SignIn() {
             Toast.show({
                 text: "Bienvenue!",
                 buttonText: "Okay",
-                position: "bottom"
+                position: "bottom",
+                type:"success"
             });
         } else {
             Toast.show({
                 text: "Une Mauvaise Saisie!",
                 buttonText: "Okay",
-                position: "bottom"
+                position: "bottom",
+                type:"danger"
             });
         }
     }
