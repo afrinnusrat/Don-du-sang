@@ -1,18 +1,23 @@
 import React, { Component } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import IconFontAwesome from "react-native-vector-icons/FontAwesome";
 
 function CustomBtnIcon(props) {
   return (
-    <TouchableOpacity style={[styles.container, props.style]}>
-      <Icon name={props.iconName} style={styles.icon}></Icon>
+    <TouchableOpacity style={[styles.container, props.style]} onPress={props.action}>
+      {!props.fontAwesome &&
+        <Icon name={props.iconName} style={styles.icon}></Icon>
+      }
+      {props.fontAwesome &&
+        <IconFontAwesome name={props.iconName} style={styles.icon}></IconFontAwesome>
+      }
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#3F51B5",
     alignItems: "center",
     justifyContent: "center",
     borderRadius: 28,
@@ -28,7 +33,7 @@ const styles = StyleSheet.create({
     minHeight: 40
   },
   icon: {
-    color: "#fff",
+    color: "white",
     fontSize: 24,
     alignSelf: "center"
   }
