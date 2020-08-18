@@ -2,6 +2,7 @@ import React from "react";
 import { View, Image } from "react-native";
 import SignIn from "./scenes/signIn";
 import SignUp from "./scenes/signUp";
+import Dashboard from "./scenes/dashboard"
 //
 import CustomButton from "./generic/CustomButton";
 import CustomBtnIcon from "./generic/CustomBtnIcon";
@@ -28,6 +29,10 @@ function App() {
       )
     }
   }
+  return (
+    <Dashboard />
+  )
+  /*
   if (toLogin) {
     return <SignIn />;
   } else if (toSignUp) {
@@ -35,7 +40,6 @@ function App() {
   } else {
     return (
       <View style={styles.container}>
-        {/*<Text style={styles.sloganClass}>Don du sang</Text>*/}
         <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { }} />
         <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
         <Image
@@ -50,7 +54,7 @@ function App() {
         <CustomBtnIcon iconName="human-greeting" style={styles.humanGreetingIcon} action={() => { }} />
       </View>
     );
-  }
+  }*/
 }
 
 export default App;
