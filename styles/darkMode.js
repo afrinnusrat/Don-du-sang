@@ -17,9 +17,9 @@ export default StyleSheet.create({
         alignSelf: "center"
     },
     image: {
-        marginTop: 150,
-        width: 270,
-        height: 240,
+        marginTop: 50,
+        width: 200,
+        height: 177
     },
     signInClass: {
         height: 44,
@@ -34,7 +34,7 @@ export default StyleSheet.create({
         elevation: 5,
         shadowOpacity: 1,
         shadowRadius: 0,
-        marginTop: 80,
+        marginTop: 250,
     },
     signUpClass: {
         height: 44,
@@ -49,7 +49,7 @@ export default StyleSheet.create({
         elevation: 5,
         shadowOpacity: 1,
         shadowRadius: 0,
-        marginTop: 30,
+        marginTop: 20,
     },
     lightDarkSwitch: {
         fontSize: 40,
