@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { View, Text, Image } from "react-native";
 import { Toast } from "native-base";
-import SignUp from "../signUp";
 //
 import CustomButton from "../../generic/CustomButton";
 import CustomInputText from "../../generic/CustomInputText";
@@ -9,8 +8,7 @@ import CustomBtnIcon from "../../generic/CustomBtnIcon";
 //
 import styles from "./styling";
 
-export default function SignIn() {
-    const [firstTime, setFirstTime] = React.useState(false);
+export default function SignIn({ navigation }) {
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
     const onChangeLogin = (text) => {
         setUserInfos({ ...userInfos, login: text });
@@ -27,36 +25,34 @@ export default function SignIn() {
                 text: "Bienvenue!",
                 buttonText: "Okay",
                 position: "bottom",
-                type:"success"
+                type: "success"
             });
         } else {
             Toast.show({
                 text: "Une Mauvaise Saisie!",
                 buttonText: "Okay",
                 position: "bottom",
-                type:"danger"
+                type: "danger"
             });
         }
     }
-    if (firstTime) {
-        return <SignUp />
-    } else {
-        return (
-            <View style={styles.container}>
-                <View style={styles.sloganContainer}>
-                    <Text style={styles.sloganClass}>Don du sang</Text>
-                    <Image
-                        source={require("../../assets/images/blood_donation.png")}
-                        resizeMode="contain"
-                        style={styles.image}
-                    ></Image>
-                </View>
-                <CustomInputText style={styles.loginInput} placeholder="Login :" withIcon={false} onChangeText={onChangeLogin}></CustomInputText>
-                <CustomInputText style={styles.passwordInput} isPassword placeholder="Mot de passe :" withIcon={true} onChangeText={onChangePsswd}></CustomInputText>
-                <CustomButton action={connexion} text="Confirmer" style={styles.confirmBtn}></CustomButton>
-                <Text style={{ position: "relative", top: 20 }} onPress={() => setFirstTime(true)}>Pas de compte ?</Text>
-                <CustomBtnIcon style={styles.shareBtn} iconName="share"></CustomBtnIcon>
+    return (
+        <View style={styles.container}>
+            <View style={styles.sloganContainer}>
+                <Text style={styles.sloganClass}>Don du sang</Text>
+                <Image
+                    source={require("../../assets/images/blood_donation.png")}
+                    resizeMode="contain"
+                    style={styles.image}
+                ></Image>
             </View>
-        );
-    }
+            <CustomInputText style={styles.loginInput} placeholder="Login :" withIcon={false} onChangeText={onChangeLogin}></CustomInputText>
+            <CustomInputText style={styles.passwordInput} isPassword placeholder="Mot de passe :" withIcon={true} onChangeText={onChangePsswd}></CustomInputText>
+            <CustomButton action={connexion} text="Confirmer" style={styles.confirmBtn}></CustomButton>
+            <Text style={{ position: "relative", top: 20 }} onPress={() => {
+                navigation.navigate('SignUpScreen');
+            }}>Pas de compte ?</Text>
+            <CustomBtnIcon style={styles.shareBtn} iconName="share"></CustomBtnIcon>
+        </View>
+    );
 }

@@ -3,7 +3,7 @@ import {  View } from "react-native";
 import BirthPicker from "./steps/BirthPicker";
 import PersInfo from "./steps/PersInfo";
 
-function SignUp() {
+function SignUp({navigation}) {
     const [firstStep,setFirstStep]=React.useState(true);
     const [user, setUser] = React.useState({
         firstName: "", lastName: "", password: "", birthDate: new Date(), phoneNumber: "",gender:"Homme"
@@ -18,7 +18,7 @@ function SignUp() {
     if (firstStep) {
         return (
             <View>
-                <PersInfo user={user} action={()=>setFirstStep(false)} onChangeFName={onChangeFName} onChangeLName={onChangeLName} onChangePassword={onChangePassword} onChangePhoneNumber={onChangePhoneNumber} onChangeGender={onChangeGender} />
+                <PersInfo navigation={navigation} user={user} action={()=>setFirstStep(false)} onChangeFName={onChangeFName} onChangeLName={onChangeLName} onChangePassword={onChangePassword} onChangePhoneNumber={onChangePhoneNumber} onChangeGender={onChangeGender} />
             </View>
         );
     } else {
