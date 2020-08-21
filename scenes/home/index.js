@@ -10,8 +10,6 @@ import darkStyles from "../../styles/darkMode";
 //
 
 function App({ navigation }) {
-    const [toLogin, setToLogin] = React.useState(false);
-    const [toSignUp, setToSignUp] = React.useState(false);
     const [styles, setStyles] = React.useState(lightStyles);
     const [imageModes, setImageModes] = React.useState({
         logo: require("../../assets/images/blood_donation.png"),

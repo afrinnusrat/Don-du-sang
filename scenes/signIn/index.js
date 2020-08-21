@@ -6,7 +6,8 @@ import CustomButton from "../../generic/CustomButton";
 import CustomInputText from "../../generic/CustomInputText";
 import CustomBtnIcon from "../../generic/CustomBtnIcon";
 //
-import styles from "./styling";
+import lightStyles from "./styles/lightStyles";
+import darkStyles from "./styles/darkStyles"
 
 export default function SignIn({ navigation }) {
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
@@ -21,38 +22,60 @@ export default function SignIn({ navigation }) {
 
         //
         if (userInfos.login === "Tomas" && userInfos.password === "aaa") {
-            Toast.show({
-                text: "Bienvenue!",
-                buttonText: "Okay",
-                position: "bottom",
-                type: "success"
-            });
+            alert("welcome")
         } else {
-            Toast.show({
-                text: "Une Mauvaise Saisie!",
-                buttonText: "Okay",
-                position: "bottom",
-                type: "danger"
-            });
+            alert("une mauvaise saisie")
+        }
+    }
+    const [styles, setStyles] = React.useState(lightStyles);
+    const [imageModes, setImageModes] = React.useState({
+        logo: require("../../assets/images/blood_donation.png"),
+        background: require("../../assets/images/blood_donation_background.png")
+    })
+    const swichLight = () => {
+        if (styles === lightStyles) {
+            setStyles(darkStyles);
+            setImageModes({ logo: require("../../assets/images/logo_lightMode.png"), background: require("../../assets/images/blood_donation_background_dark.png") })
+        } else {
+            setStyles(lightStyles);
+            setImageModes({ logo: require("../../assets/images/blood_donation.png"), background: require("../../assets/images/blood_donation_background.png") })
         }
     }
     return (
         <View style={styles.container}>
             <View style={styles.sloganContainer}>
-                <Text style={styles.sloganClass}>Don du sang</Text>
+                <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { }} />
+                <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
                 <Image
-                    source={require("../../assets/images/blood_donation.png")}
+                    source={imageModes.logo}
                     resizeMode="contain"
                     style={styles.image}
                 ></Image>
+                <Image
+                    source={imageModes.background}
+                    resizeMode="stretch"
+                    style={{
+                        left: -100,
+                        width: 375,
+                        height: 379,
+                        position: "absolute",
+                        top: 50
+                    }}
+                ></Image>
             </View>
-            <CustomInputText style={styles.loginInput} placeholder="Login :" withIcon={false} onChangeText={onChangeLogin}></CustomInputText>
-            <CustomInputText style={styles.passwordInput} isPassword placeholder="Mot de passe :" withIcon={true} onChangeText={onChangePsswd}></CustomInputText>
-            <CustomButton action={connexion} text="Confirmer" style={styles.confirmBtn}></CustomButton>
-            <Text style={{ position: "relative", top: 20 }} onPress={() => {
-                navigation.navigate('SignUpScreen');
-            }}>Pas de compte ?</Text>
-            <CustomBtnIcon style={styles.shareBtn} iconName="share"></CustomBtnIcon>
+            <View style={styles.formContainer}>
+                <CustomInputText style={styles.loginInput} placeholder="Login :" withIcon={false} onChangeText={onChangeLogin}></CustomInputText>
+                <CustomInputText style={styles.passwordInput} isPassword placeholder="Mot de passe :" withIcon={true} onChangeText={onChangePsswd}></CustomInputText>
+                <CustomButton action={connexion} text="Confirmer" style={styles.confirmBtn}></CustomButton>
+                <Text style={{ position: "relative", top: 15, marginRight: 140 }} onPress={() => {
+                    navigation.navigate('SignUpScreen');
+                }}>Pas de compte ?</Text>
+                <Text style={{ position: "relative", top: -4, marginLeft: 140, color: "black" }} onPress={() => {
+                    navigation.navigate('SignUpScreen');
+                }}>Oublié le mot de passe ?</Text>
+            </View>
+            <CustomBtnIcon style={styles.shareBtn} iconName="home" action={()=>navigation.navigate('Home')}></CustomBtnIcon>
+
         </View>
     );
 }

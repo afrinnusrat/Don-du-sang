@@ -15,7 +15,7 @@ function CustomInputText(props) {
 const styles = StyleSheet.create({
     container: {
         borderColor: "rgba(131,11,220,1)",
-        backgroundColor: "transparent",
+        //backgroundColor: "transparent",
         flexDirection: "row",
         alignItems: "center",
         borderWidth: 0
