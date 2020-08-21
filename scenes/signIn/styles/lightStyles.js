@@ -1,10 +1,11 @@
-import {StyleSheet} from 'react-native'
+import { StyleSheet } from 'react-native'
 
 
 export default StyleSheet.create({
     container: {
         flex: 1,
-        alignItems:"center"
+        alignItems: "center",
+        backgroundColor: "white"
     },
     confirmBtn: {
         height: 48,
@@ -27,7 +28,7 @@ export default StyleSheet.create({
         height: 56,
         width: 56,
         backgroundColor: "rgba(68,76,137,1)",
-        marginTop: 60,
+        marginTop: 40,
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
             width: 3,
@@ -39,7 +40,7 @@ export default StyleSheet.create({
     },
     sloganClass: {
         top: 10,
-        marginLeft:25,
+        marginLeft: 25,
         position: "relative",
         fontFamily: "alegreya-sc-700",
         color: "#121212",
@@ -48,7 +49,7 @@ export default StyleSheet.create({
         fontSize: 22,
     },
     image: {
-        top: 34,
+        top: -40,
         width: 175,
         height: 166,
         position: "absolute"
@@ -62,16 +63,40 @@ export default StyleSheet.create({
         width: 265,
         height: 43,
         borderWidth: 1,
-        borderColor: "#000000",
+        borderColor: "white",
         borderRadius: 12,
         marginTop: 20,
+        backgroundColor: "rgba(230,230,230,0.5)"
     },
     loginInput: {
         height: 43,
         width: 265,
         borderWidth: 1,
-        borderColor: "#000000",
+        borderColor: "white",
         borderRadius: 12,
         marginTop: 50,
-    }
+        backgroundColor: "rgba(230,230,230,0.5)"
+
+    },
+    formContainer: {
+        backgroundColor: "rgba(0,0,0,0.2)",
+        borderRadius: 20,
+        width: 333,
+        height: 280,
+        alignItems: "center"
+    },
+    lightDarkSwitch: {
+        backgroundColor: "#144177",
+        fontSize: 40,
+        position: "absolute",
+        top: -50,
+        right: -80
+    },
+    languageIcon: {
+        backgroundColor: "#144177",
+        fontSize: 20,
+        position: "absolute",
+        top: -50,
+        left: -80
+    },
 });
