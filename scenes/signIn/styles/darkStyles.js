@@ -28,7 +28,7 @@ export default StyleSheet.create({
         height: 56,
         width: 56,
         backgroundColor: "rgba(68,76,137,1)",
-        marginTop: 60,
+        marginTop: 40,
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
             width: 3,
