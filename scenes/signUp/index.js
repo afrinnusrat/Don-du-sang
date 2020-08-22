@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
-import BirthPicker from "./steps/BirthPicker";
-import PersInfo from "./steps/PersInfo";
+import BirthPicker from "./steps/birthPicker";
+import PersInfo from "./steps/persInfo";
 
 function SignUp({ navigation }) {
     const [firstStep, setFirstStep] = React.useState(true);

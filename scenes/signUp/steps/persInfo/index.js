@@ -3,9 +3,9 @@ import { View, Text, Image } from "react-native";
 import { Picker } from '@react-native-community/picker';
 
 //
-import CustomInputText from "../../../generic/CustomInputText";
-import CustomButton from "../../../generic/CustomButton";
-import CustomBtnIcon from "../../../generic/CustomBtnIcon";
+import CustomInputText from "../../../../generic/CustomInputText";
+import CustomButton from "../../../../generic/CustomButton";
+import CustomBtnIcon from "../../../../generic/CustomBtnIcon";
 
 //
 import lightStyles from "./styles/lightStyles";
@@ -14,16 +14,16 @@ import darkStyles from "./styles/darkStyles";
 function PersInfo(props) {
     const [styles, setStyles] = React.useState(lightStyles);
     const [imageModes, setImageModes] = React.useState({
-        logo: require("../../../assets/images/blood_donation.png"),
-        background: require("../../../assets/images/blood_donation_background.png")
+        logo: require("../../../../assets/images/blood_donation.png"),
+        background: require("../../../../assets/images/blood_donation_background.png")
     })
     const swichLight = () => {
         if (styles === lightStyles) {
             setStyles(darkStyles);
-            setImageModes({ logo: require("../../../assets/images/logo_lightMode.png"), background: require("../../../assets/images/blood_donation_background_dark.png") })
+            setImageModes({ logo: require("../../../../assets/images/logo_lightMode.png"), background: require("../../../../assets/images/blood_donation_background_dark.png") })
         } else {
             setStyles(lightStyles);
-            setImageModes({ logo: require("../../../assets/images/blood_donation.png"), background: require("../../../assets/images/blood_donation_background.png") })
+            setImageModes({ logo: require("../../../../assets/images/blood_donation.png"), background: require("../../../../assets/images/blood_donation_background.png") })
         }
     }
     return (

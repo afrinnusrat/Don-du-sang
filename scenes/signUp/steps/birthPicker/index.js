@@ -1,7 +1,7 @@
 import React from "react";
 import DatePicker from 'react-native-date-picker'
 import { View } from "react-native";
-import CustomButton from "../../../generic/CustomButton";
+import CustomButton from "../../../../generic/CustomButton";
 export default function BirthPicker(props) {
     return (
         <View style={{ flex: 1, backgroundColor: "white" }}>
