@@ -4,7 +4,8 @@ import { View } from "react-native";
 import CustomButton from "../../../generic/CustomButton";
 export default function BirthPicker(props) {
     return (
-        <View style={{ alignItems: "center", flex: 1, backgroundColor: "white", marginTop: "50%" }}>
+        <View style={{ flex: 1, backgroundColor: "white" }}>
+            <View style={{marginTop: "50%",alignItems: "center"}}>
             <DatePicker
                 date={props.birthDate}
                 onDateChange={props.onChangeBirthDate}
@@ -25,6 +26,7 @@ export default function BirthPicker(props) {
                 backgroundColor: "rgba(66,70,139,1)",
                 marginTop: "25%",
             }} action={() => alert(props.birthDate)} />
+            </View>
         </View>
     )
 }
