@@ -11,6 +11,11 @@ import darkStyles from "./styles/darkStyles"
 
 export default function SignIn({ navigation }) {
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
+    const [styles, setStyles] = React.useState(lightStyles);
+    const [imageModes, setImageModes] = React.useState({
+        logo: require("../../assets/images/blood_donation.png"),
+        background: require("../../assets/images/blood_donation_background.png")
+    })
     const onChangeLogin = (text) => {
         setUserInfos({ ...userInfos, login: text });
     };
@@ -27,11 +32,6 @@ export default function SignIn({ navigation }) {
             alert("une mauvaise saisie")
         }
     }
-    const [styles, setStyles] = React.useState(lightStyles);
-    const [imageModes, setImageModes] = React.useState({
-        logo: require("../../assets/images/blood_donation.png"),
-        background: require("../../assets/images/blood_donation_background.png")
-    })
     const swichLight = () => {
         if (styles === lightStyles) {
             setStyles(darkStyles);
