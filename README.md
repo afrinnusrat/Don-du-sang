@@ -10,9 +10,9 @@ Il s'agit d'une application mobile de _don du sang_
 ### Guide de configuration pour les contributeurs : 
 [Visitez la Note ici](https://www.evernote.com/shard/s447/sh/c016f3cd-b205-9843-5623-f9dd62a4edb4/4762d565b85b2bc0567f205fe16e3d7a)
 
-#### Screen-shots (to be updated) : 
+ 
 
-<p align="center">
+<!--p align="center">
   <a href="https://github.com/BLemine/" style="display:block-inline">
     <img alt="creation_compte" src="readme_media/doc/home_screen.png" width="150" />
   </a>
@@ -25,7 +25,7 @@ Il s'agit d'une application mobile de _don du sang_
   <a href="https://github.com/BLemine/" style="display:block-inline">
     <img alt="creation_compte" src="readme_media/doc/signUp_screen_2.png" width="150" />
   </a>
-</p>
+</p-->
 
 ---
 
