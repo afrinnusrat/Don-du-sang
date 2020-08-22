@@ -74,14 +74,14 @@ export default StyleSheet.create({
 
     },
     lightDarkSwitch: {
-        backgroundColor: "#144177",
+        //backgroundColor: "#144177",
         fontSize: 40,
         position: "absolute",
         top: 15,
         right: 15
     },
     languageIcon: {
-        backgroundColor: "#144177",
+        //backgroundColor: "#144177",
         fontSize: 20,
         position: "absolute",
         top: 15,
@@ -93,5 +93,19 @@ export default StyleSheet.create({
         width: 333,
         height: 420,
         alignItems: "center"
-    }
+    },
+    shareBtn: {
+        height: 26,
+        width: 26,
+        //backgroundColor: "rgba(68,76,137,1)",
+        marginTop: 10,
+        shadowColor: "rgba(0,0,0,1)",
+        shadowOffset: {
+            width: 3,
+            height: 3
+        },
+        elevation: 5,
+        shadowOpacity: 0.66,
+        shadowRadius: 0,
+    },
 });

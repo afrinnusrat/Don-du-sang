@@ -27,7 +27,7 @@ export default StyleSheet.create({
     shareBtn: {
         height: 56,
         width: 56,
-        backgroundColor: "rgba(68,76,137,1)",
+        //backgroundColor: "rgba(68,76,137,1)",
         marginTop: 40,
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
@@ -83,14 +83,14 @@ export default StyleSheet.create({
         marginTop: 50,
     },
     lightDarkSwitch: {
-        backgroundColor: "#144177",
+        //backgroundColor: "#144177",
         fontSize: 40,
         position: "absolute",
         top: -50,
         right: -80
     },
     languageIcon: {
-        backgroundColor: "#144177",
+        //backgroundColor: "#144177",
         fontSize: 20,
         position: "absolute",
         top: -50,

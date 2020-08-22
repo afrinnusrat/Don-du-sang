@@ -86,7 +86,6 @@ function PersInfo(props) {
                 <CustomButton text="Continuer" style={styles.confirmClass} action={props.action}></CustomButton>
                 <Text style={{ position: "relative", top: 20 }} onPress={() => {
                     props.navigation.navigate('SignInScreen');
-                    //setFirstTime(false)
                 }}>Vous avez un compte ?</Text>
             </View>
             <CustomBtnIcon style={styles.shareBtn} iconName="home" action={()=>props.navigation.navigate('Home')}></CustomBtnIcon>
