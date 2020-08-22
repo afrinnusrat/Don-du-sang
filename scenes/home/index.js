@@ -5,8 +5,8 @@ import { View, Image } from "react-native";
 import CustomButton from "../../generic/CustomButton";
 import CustomBtnIcon from "../../generic/CustomBtnIcon";
 
-import lightStyles from "../../styles/lightMode";
-import darkStyles from "../../styles/darkMode";
+import lightStyles from "./styles/lightMode";
+import darkStyles from "./styles/darkMode";
 //
 
 function App({ navigation }) {
