@@ -94,7 +94,7 @@ export default StyleSheet.create({
         height: 420,
         alignItems: "center"
     },
-    shareBtn: {
+    homeBtn: {
         height: 26,
         width: 26,
         //backgroundColor: "rgba(68,76,137,1)",

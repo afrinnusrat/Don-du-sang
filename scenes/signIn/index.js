@@ -71,10 +71,10 @@ export default function SignIn({ navigation }) {
                     navigation.navigate('SignUpScreen');
                 }}>Pas de compte ?</Text>
                 <Text style={{ position: "relative", top: -4, marginLeft: 140, color: "black" }} onPress={() => {
-                    navigation.navigate('SignUpScreen');
+                    //navigation.navigate('ForgotPasswordScreen');
                 }}>Oublié le mot de passe ?</Text>
             </View>
-            <CustomBtnIcon style={styles.shareBtn} iconName="home" action={()=>navigation.navigate('Home')}></CustomBtnIcon>
+            <CustomBtnIcon style={styles.homeBtn} iconName="home" action={()=>navigation.navigate('Home')}></CustomBtnIcon>
 
         </View>
     );

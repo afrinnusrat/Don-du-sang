@@ -52,9 +52,10 @@ function App({ navigation }) {
                 navigation.navigate('SignUpScreen');
                 //setToSignUp(true)
             }}></CustomButton>
-            <CustomBtnIcon iconName="share" style={styles.shareIcon} action={() => { }} />
+            <CustomBtnIcon iconName="share" style={styles.homeBtn} action={() => { }} />
             <CustomBtnIcon iconName="star" style={styles.starIcon} action={() => { }} />
             <CustomBtnIcon iconName="human-greeting" style={styles.humanGreetingIcon} action={() => { }} />
+            <CustomBtnIcon iconName="question" fontAwesome={true} style={styles.questionIcon} action={()=>{}} />
         </View>
     );
 }

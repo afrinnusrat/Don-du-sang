@@ -77,13 +77,20 @@ export default StyleSheet.create({
         position: "absolute",
         fontSize: 40,
         bottom: 40,
-        left: "45%"
+        left: "55%"
     },
-    shareIcon: {
+    homeBtn: {
         backgroundColor: "#144177",
         position: "absolute",
         fontSize: 40,
         bottom: 40,
         right: 40
+    },
+    questionIcon:{
+        backgroundColor: "#144177",
+        position: "absolute",
+        fontSize: 40,
+        bottom: 40,
+        left: "34%"
     }
 });

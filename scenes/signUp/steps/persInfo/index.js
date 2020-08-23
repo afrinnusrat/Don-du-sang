@@ -88,7 +88,7 @@ function PersInfo(props) {
                     props.navigation.navigate('SignInScreen');
                 }}>Vous avez un compte ?</Text>
             </View>
-            <CustomBtnIcon style={styles.shareBtn} iconName="home" action={()=>props.navigation.navigate('Home')}></CustomBtnIcon>
+            <CustomBtnIcon style={styles.homeBtn} iconName="home" action={()=>props.navigation.navigate('Home')}></CustomBtnIcon>
 
         </View>
     );

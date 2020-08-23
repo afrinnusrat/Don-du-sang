@@ -73,12 +73,18 @@ export default StyleSheet.create({
         position: "absolute",
         fontSize: 40,
         bottom: 40,
-        left: "45%"
+        left: "55%"
     },
-    shareIcon: {
+    homeBtn: {
         position: "absolute",
         fontSize: 40,
         bottom: 40,
         right: 40
+    },
+    questionIcon:{
+        position: "absolute",
+        fontSize: 40,
+        bottom: 40,
+        left: "34%"
     }
 });

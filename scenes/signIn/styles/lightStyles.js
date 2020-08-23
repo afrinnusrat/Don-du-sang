@@ -24,7 +24,7 @@ export default StyleSheet.create({
         shadowOpacity: 0.66,
         shadowRadius: 0,
     },
-    shareBtn: {
+    homeBtn: {
         height: 56,
         width: 56,
         backgroundColor: "rgba(68,76,137,1)",
