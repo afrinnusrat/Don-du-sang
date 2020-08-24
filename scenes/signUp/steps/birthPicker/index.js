@@ -1,6 +1,6 @@
 import React from "react";
 import DatePicker from 'react-native-date-picker'
-import { View } from "react-native";
+import { View, Image } from "react-native";
 import CustomButton from "../../../../generic/CustomButton";
 import CustomBtnIcon from "../../../../generic/CustomBtnIcon";
 import lightStyles from "./styles/lightStyles";
@@ -25,6 +25,11 @@ export default function BirthPicker(props) {
         <View style={styles.container}>
             <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { }} />
             <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
+            <Image
+                source={imageModes.logo}
+                resizeMode="contain"
+                style={styles.logo}
+            ></Image>
             <View style={{ marginTop: "50%", alignItems: "center" }}>
                 <DatePicker
                     date={props.birthDate}
@@ -46,7 +51,7 @@ export default function BirthPicker(props) {
                     shadowRadius: 0,
                     backgroundColor: "rgba(66,70,139,1)",
                     marginTop: "5%",
-                }} action={() => alert(props.birthDate)} />
+                }} action={props.action} />
             </View>
             <CustomBtnIcon style={styles.homeBtn} iconName="home" action={() => props.navigation.navigate('Home')}></CustomBtnIcon>
         </View>

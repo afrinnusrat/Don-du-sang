@@ -27,12 +27,10 @@ export default StyleSheet.create({
         left: 15
     },
     homeBtn: {
-        position:"absolute",
         height: 26,
         width: 26,
         backgroundColor: "rgba(68,76,137,1)",
-        bottom: 30,
-        left:"45%",
+        marginTop:70,
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
             width: 3,
@@ -41,6 +39,12 @@ export default StyleSheet.create({
         elevation: 5,
         shadowOpacity: 0.66,
         shadowRadius: 0,
+    },
+    logo:{
+        top: 42,
+        width: 172,
+        height: 132,
+        position: "absolute"
     },
     /** 
      * 

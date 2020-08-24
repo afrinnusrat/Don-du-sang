@@ -22,12 +22,16 @@ function SignUp({ navigation }) {
     const onChangeBloodGroup = (text) => setUser({ ...user, bloodGroup: text });
     const onChangeQuestion=(text)=>setSecurityQuestions({...securityQuestions,question1:text});
     const onChangeResponse=(text)=>setSecurityQuestions({...securityQuestions,response1:text});
+    const addUser=()=>{
+        alert("fname : "+user.firstName+"\nlname : "+user.lastName+"\nbirthDay : "+user.birthDate)
+        //navigation.navigate("DashboardScreen");
+    }
     if (firstStep) {
         return (
             <PersInfo navigation={navigation} user={user} action={() => setFirstStep(false)} onChangeFName={onChangeFName} onChangeLName={onChangeLName} onChangePassword={onChangePassword} onChangePhoneNumber={onChangePhoneNumber} onChangeGender={onChangeGender} onChangeBloodGroup={onChangeBloodGroup} />
         );
     } else {
-        return <BirthPicker navigation={navigation} birthDate={user.birthDate} onChangeBirthDate={onChangeBirthDate} securityQuestions={securityQuestions} onChangeQuestion={onChangeQuestion} onChangeResponse={onChangeResponse} />
+        return <BirthPicker navigation={navigation} birthDate={user.birthDate} onChangeBirthDate={onChangeBirthDate} securityQuestions={securityQuestions} onChangeQuestion={onChangeQuestion} onChangeResponse={onChangeResponse} action={addUser}/>
     }
 
 }

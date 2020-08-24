@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { View, Text } from 'react-native';
+import Profile from "./Profile";
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -57,14 +57,13 @@ function MyDrawer() {
       <Drawer.Screen name="Feed" component={Feed} />
       <Drawer.Screen name="Mes RDVs" component={RDVs} />
       <Drawer.Screen name="Historique" component={Historique} />
+      <Drawer.Screen name="Profile" component={Profile} />
     </Drawer.Navigator>
   );
 }
 
 export default function App() {
   return (
-    <NavigationContainer>
       <MyDrawer />
-    </NavigationContainer>
   );
 }
