@@ -24,5 +24,7 @@
     "La personalité modèle pour vous ?"
   ],
   "answer":"Réponse",
-  "signUp_finishBtn": "Terminer"
+  "signUp_birthPicker_finishBtn": "Confirmer",
+  "signUp_finishBtn":"Terminer",
+  "skip":"Passer"
 }

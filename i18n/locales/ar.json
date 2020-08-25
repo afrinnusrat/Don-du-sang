@@ -25,5 +25,7 @@
     "من هو قدوتك ؟"
   ],
   "answer":"الجواب",
-  "signUp_finishBtn": "تأكيد"
+  "signUp_birthPicker_finishBtn": "تأكيد",
+  "signUp_finishBtn":"إنهاء",
+  "skip":"تخطي"
 }
