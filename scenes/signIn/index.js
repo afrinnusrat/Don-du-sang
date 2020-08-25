@@ -7,7 +7,9 @@ import CustomInputText from "../../generic/CustomInputText";
 import CustomBtnIcon from "../../generic/CustomBtnIcon";
 //
 import lightStyles from "./styles/lightStyles";
-import darkStyles from "./styles/darkStyles"
+import darkStyles from "./styles/darkStyles";
+import "../../i18n";
+import { useTranslation } from "react-i18next";
 
 export default function SignIn({ navigation }) {
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
@@ -16,6 +18,17 @@ export default function SignIn({ navigation }) {
         logo: require("../../assets/images/blood_donation.png"),
         background: require("../../assets/images/blood_donation_background.png")
     })
+    // i18n injection
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lng) => {
+        if(i18n.language==="fr"){
+            i18n.changeLanguage("ar");
+        }else if(i18n.language==="ar"){
+            i18n.changeLanguage("fr");
+        }
+    };
+    //
     const onChangeLogin = (text) => {
         setUserInfos({ ...userInfos, login: text });
     };
@@ -44,7 +57,7 @@ export default function SignIn({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.sloganContainer}>
-                <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { }} />
+                <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => {changeLanguage('ar') }} />
                 <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
                 <Image
                     source={imageModes.logo}
@@ -64,15 +77,15 @@ export default function SignIn({ navigation }) {
                 ></Image>
             </View>
             <View style={styles.formContainer}>
-                <CustomInputText style={styles.loginInput} placeholder="Login :" withIcon={false} onChangeText={onChangeLogin}></CustomInputText>
-                <CustomInputText style={styles.passwordInput} isPassword placeholder="Mot de passe :" withIcon={true} onChangeText={onChangePsswd}></CustomInputText>
-                <CustomButton action={connexion} text="Confirmer" style={styles.confirmBtn}></CustomButton>
+                <CustomInputText style={styles.loginInput} placeholder={t("signIn_login")} withIcon={false} onChangeText={onChangeLogin}></CustomInputText>
+                <CustomInputText style={styles.passwordInput} isPassword placeholder={t("signIn_password")} withIcon={true} onChangeText={onChangePsswd}></CustomInputText>
+                <CustomButton action={connexion} text={t("signIn_confirmBtn")} style={styles.confirmBtn}></CustomButton>
                 <Text style={{ position: "relative", top: 15, marginRight: 140 }} onPress={() => {
                     navigation.navigate('SignUpScreen');
-                }}>Pas de compte ?</Text>
+                }}>{t("signIn_link1")}</Text>
                 <Text style={{ position: "relative", top: -4, marginLeft: 140, color: "black" }} onPress={() => {
                     //navigation.navigate('ForgotPasswordScreen');
-                }}>Oublié le mot de passe ?</Text>
+                }}>{t("signIn_link2")}</Text>
             </View>
             <CustomBtnIcon style={styles.homeBtn} iconName="home" action={()=>navigation.navigate('Home')}></CustomBtnIcon>
 

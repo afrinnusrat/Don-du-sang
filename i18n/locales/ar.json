@@ -1,0 +1,28 @@
+{
+  "signIn_title": "تسجيل الدخول",
+  "signIn_login": "رمز الدخول",
+  "signIn_password": "كلمة المرور",
+  "signIn_confirmBtn": "تأكيد",
+  "signIn_link1": "إنشاء حساب ؟",
+  "signIn_link2": "نسيت كلمة المرور ؟",
+  "signUp_title": "إنشاء حساب",
+  "signUp_lname": "الإسم العائلي",
+  "signUp_fname": "الإسم الشخصي",
+
+  "gender_male": "ذكر",
+  "gender_female": "أنثى",
+
+  "signUp_password": "كلمة المرور",
+  "signUp_phone": "رقم الهاتف",
+  "signUp_confirmBtn": "تأكيد",
+  "signUp_link1": "لديك حساب مسبق ؟",
+  "signUp_questions": [
+    "من هو مغنيك المفضل ؟",
+    "وجهتك القادمة ؟",
+    "اسم صديقك المفضل ؟",
+    "اسمك المستعار ؟",
+    "حيوانك المفضل ؟",
+    "من هو قدوتك ؟"
+  ],
+  "signUp_finishBtn": "تأكيد"
+}

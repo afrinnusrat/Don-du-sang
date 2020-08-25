@@ -10,13 +10,26 @@ import CustomBtnIcon from "../../../../generic/CustomBtnIcon";
 //
 import lightStyles from "./styles/lightStyles";
 import darkStyles from "./styles/darkStyles";
+import "../../../../i18n";
+import { useTranslation } from "react-i18next";
 
 function PersInfo(props) {
     const [styles, setStyles] = React.useState(lightStyles);
     const [imageModes, setImageModes] = React.useState({
         logo: require("../../../../assets/images/blood_donation.png"),
         background: require("../../../../assets/images/blood_donation_background.png")
-    })
+    });
+    // i18n injection
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lng) => {
+        if (i18n.language === "fr") {
+            i18n.changeLanguage("ar");
+        } else if (i18n.language === "ar") {
+            i18n.changeLanguage("fr");
+        }
+    };
+    //
     const swichLight = () => {
         if (styles === lightStyles) {
             setStyles(darkStyles);
@@ -28,7 +41,7 @@ function PersInfo(props) {
     }
     return (
         <View style={styles.container}>
-            <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { }} />
+            <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { changeLanguage("ar") }} />
             <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
             <Image
                 source={imageModes.logo}
@@ -47,8 +60,8 @@ function PersInfo(props) {
                 }}
             ></Image>
             <View style={styles.formContainer}>
-                <CustomInputText style={styles.nameClass} onChangeText={props.onChangeLName} placeholder="Nom"></CustomInputText>
-                <CustomInputText style={styles.nameClass} onChangeText={props.onChangeFName} placeholder="Prenom"></CustomInputText>
+                <CustomInputText style={styles.nameClass} onChangeText={props.onChangeLName} placeholder={t("signUp_lname")}></CustomInputText>
+                <CustomInputText style={styles.nameClass} onChangeText={props.onChangeFName} placeholder={t("signUp_fname")}></CustomInputText>
                 <View style={{
                     flexWrap: 'wrap',
                     alignItems: 'flex-start',
@@ -62,8 +75,8 @@ function PersInfo(props) {
                             style={{ width: 130, marginTop: -5, flexDirection: 'column', }}
                             onValueChange={props.onChangeGender}
                         >
-                            <Picker.Item label="Homme" value="Homme" />
-                            <Picker.Item label="Femme" value="Femme" />
+                            <Picker.Item label={t("gender_male")} value={t("gender_male")} />
+                            <Picker.Item label={t("gender_female")} value={t("gender_female")} />
                         </Picker>
                     </View>
                     <View style={styles.genderPicker}>
@@ -81,14 +94,14 @@ function PersInfo(props) {
                         </Picker>
                     </View>
                 </View>
-                <CustomInputText style={styles.psswdClass} onChangeText={props.onChangePassword} isPassword placeholder="Mot de passe" withIcon></CustomInputText>
-                <CustomInputText style={styles.phoneClass} onChangeText={props.onChangePhoneNumber} placeholder="Téléphone"></CustomInputText>
-                <CustomButton text="Continuer" style={styles.confirmClass} action={props.action}></CustomButton>
+                <CustomInputText style={styles.psswdClass} onChangeText={props.onChangePassword} isPassword placeholder={t("signUp_password")} withIcon></CustomInputText>
+                <CustomInputText style={styles.phoneClass} onChangeText={props.onChangePhoneNumber} placeholder={t("signUp_phone")}></CustomInputText>
+                <CustomButton text={t("signUp_confirmBtn")} style={styles.confirmClass} action={props.action}></CustomButton>
                 <Text style={{ position: "relative", top: 20 }} onPress={() => {
                     props.navigation.navigate('SignInScreen');
-                }}>Vous avez un compte ?</Text>
+                }}>{t("signUp_link1")}</Text>
             </View>
-            <CustomBtnIcon style={styles.homeBtn} iconName="home" action={()=>props.navigation.navigate('Home')}></CustomBtnIcon>
+            <CustomBtnIcon style={styles.homeBtn} iconName="home" action={() => props.navigation.navigate('Home')}></CustomBtnIcon>
 
         </View>
     );

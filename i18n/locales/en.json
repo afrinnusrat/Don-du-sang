@@ -1,0 +1,27 @@
+{
+  "signIn_title": "Sign In",
+  "signIn_login": "Login",
+  "signIn_password": "Password",
+  "signIn_confirmBtn": "Confirm",
+  "signIn_link1": "sign-Up ?",
+  "signIn_link2": "Forgot password ?",
+  
+  "signUp_title": "Sign Up",
+  "signUp_lname": "Lastname",
+  "signUp_fname": "Firstname",
+  "gender_male": "Male",
+  "gender_female": "Female",
+  "signUp_password": "Password",
+  "signUp_phone": "Phone number",
+  "signUp_confirmBtn": "Confirm",
+  "signUp_link1": "sign-in ?",
+  "signUp_questions": [
+    "Who's your favorite singer ?",
+    "Your next destination ?",
+    "Your best friend's name ?",
+    "Your nickname ?",
+    "Your favorite pet ?",
+    "Who's your idol ?"
+  ],
+  "signUp_finishBtn": "Finish"
+}
