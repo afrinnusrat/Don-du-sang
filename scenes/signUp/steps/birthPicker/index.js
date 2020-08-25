@@ -6,12 +6,25 @@ import CustomBtnIcon from "../../../../generic/CustomBtnIcon";
 import lightStyles from "./styles/lightStyles";
 import darkStyles from "./styles/darkStyles";
 import SecurityQuestions from "../securityQuestions";
+import "../../../../i18n";
+import { useTranslation } from "react-i18next";
 export default function BirthPicker(props) {
     const [styles, setStyles] = React.useState(lightStyles);
     const [imageModes, setImageModes] = React.useState({
         logo: require("../../../../assets/images/blood_donation.png"),
         background: require("../../../../assets/images/blood_donation_background.png")
     })
+    // i18n injection
+    const { t, i18n } = useTranslation();
+
+    const changeLanguage = (lng) => {
+        if (i18n.language === "fr") {
+            i18n.changeLanguage("ar");
+        } else if (i18n.language === "ar") {
+            i18n.changeLanguage("fr");
+        }
+    };
+    //
     const swichLight = () => {
         if (styles === lightStyles) {
             setStyles(darkStyles);
@@ -23,7 +36,7 @@ export default function BirthPicker(props) {
     }
     return (
         <View style={styles.container}>
-            <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { }} />
+            <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { changeLanguage("ar") }} />
             <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
             <Image
                 source={imageModes.logo}
@@ -37,7 +50,7 @@ export default function BirthPicker(props) {
                     mode="date"
                 />
                 <SecurityQuestions styles={styles} onChangeQuestion={props.onChangeQuestion} securityQuestions={props.securityQuestions} onChangeResponse={props.onChangeResponse} />
-                <CustomButton text="Terminer" style={{
+                <CustomButton text={t("signUp_finishBtn")} style={{
                     height: 36,
                     width: 265,
                     borderRadius: 13,

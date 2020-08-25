@@ -5,7 +5,7 @@
   "signIn_confirmBtn": "Confirmer",
   "signIn_link1": "Pas de compte ?",
   "signIn_link2": "Oublié le mot de passe ?",
-  
+
   "signUp_title": "S'inscrire",
   "signUp_lname": "Nom",
   "signUp_fname": "Prénom",
@@ -23,5 +23,6 @@
     "Votre animal préféré ?",
     "La personalité modèle pour vous ?"
   ],
+  "answer":"Réponse",
   "signUp_finishBtn": "Terminer"
 }

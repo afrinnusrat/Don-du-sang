@@ -5,7 +5,7 @@
   "signIn_confirmBtn": "Confirm",
   "signIn_link1": "sign-Up ?",
   "signIn_link2": "Forgot password ?",
-  
+
   "signUp_title": "Sign Up",
   "signUp_lname": "Lastname",
   "signUp_fname": "Firstname",
@@ -23,5 +23,6 @@
     "Your favorite pet ?",
     "Who's your idol ?"
   ],
+  "answer":"Your answer",
   "signUp_finishBtn": "Finish"
 }
