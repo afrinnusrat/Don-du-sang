@@ -1,18 +1,21 @@
 import React from "react";
 import BirthPicker from "./steps/birthPicker";
 import PersInfo from "./steps/persInfo";
+import SecurityQuestions from "./steps/securityQuestions";
 
-function SignUp({ navigation }) {
-    const [firstStep, setFirstStep] = React.useState(true);
-    const [securityQuestions,setSecurityQuestions]=React.useState({
-        question1:"Quel est votre chanteur préféré ?",response1:"",
-        question2:"",response2:"",
-        question3:"",response3:""
+export default function SignUp({ navigation }) {
+    const [steps, setSteps] = React.useState({
+        step1: true, step2: false, step3: false
+    })
+    const [securityQuestions, setSecurityQuestions] = React.useState({
+        question1: "Quel est votre chanteur préféré ?", response1: "",
+        question2: "", response2: "",
+        question3: "", response3: ""
     })
     const [user, setUser] = React.useState({
         firstName: "", lastName: "", password: "", birthDate: new Date(), phoneNumber: "", gender: "Homme", bloodGroup: "O+"
     });
-    
+
     const onChangeFName = (text) => setUser({ ...user, firstName: text });
     const onChangeLName = (text) => setUser({ ...user, lastName: text });
     const onChangePassword = (text) => setUser({ ...user, password: text });
@@ -20,20 +23,29 @@ function SignUp({ navigation }) {
     const onChangePhoneNumber = (text) => setUser({ ...user, phoneNumber: text });
     const onChangeGender = (text) => setUser({ ...user, gender: text });
     const onChangeBloodGroup = (text) => setUser({ ...user, bloodGroup: text });
-    const onChangeQuestion=(text)=>setSecurityQuestions({...securityQuestions,question1:text});
-    const onChangeResponse=(text)=>setSecurityQuestions({...securityQuestions,response1:text});
-    const addUser=()=>{
-        alert("fname : "+user.firstName+"\nlname : "+user.lastName+"\nbirthDay : "+user.birthDate)
+    //const onChangeQuestion = (text) => setSecurityQuestions({ ...securityQuestions, question1: text });
+    //const onChangeResponse = (text) => setSecurityQuestions({ ...securityQuestions, response1: text });
+    // 
+    const onChangeQuestions = (text, nb) => {
+        setSecurityQuestions({ ...securityQuestions, ["question"+nb]: text });
+    }
+    const onChangeResponses=(text,nb)=>{
+        setSecurityQuestions({ ...securityQuestions, ["response"+nb]: text });
+    }
+    //
+    const addUser = () => {
+        alert("fname : " + user.firstName + "\nlname : " + user.lastName + "\nbirthDay : " + user.birthDate)
         //navigation.navigate("DashboardScreen");
     }
-    if (firstStep) {
+    if (steps.step1) {
         return (
-            <PersInfo navigation={navigation} user={user} action={() => setFirstStep(false)} onChangeFName={onChangeFName} onChangeLName={onChangeLName} onChangePassword={onChangePassword} onChangePhoneNumber={onChangePhoneNumber} onChangeGender={onChangeGender} onChangeBloodGroup={onChangeBloodGroup} />
+            <PersInfo navigation={navigation} user={user} action={() => setSteps({ ...steps, step1: false, step2: true })} onChangeFName={onChangeFName} onChangeLName={onChangeLName} onChangePassword={onChangePassword} onChangePhoneNumber={onChangePhoneNumber} onChangeGender={onChangeGender} onChangeBloodGroup={onChangeBloodGroup} />
         );
+    } else if (steps.step2) {
+        return <BirthPicker navigation={navigation} birthDate={user.birthDate} action={() => setSteps({ ...steps, step2: false, step3: true })} onChangeBirthDate={onChangeBirthDate}  />
     } else {
-        return <BirthPicker navigation={navigation} birthDate={user.birthDate} onChangeBirthDate={onChangeBirthDate} securityQuestions={securityQuestions} onChangeQuestion={onChangeQuestion} onChangeResponse={onChangeResponse} action={addUser}/>
+        return <SecurityQuestions navigation={navigation} onChangeQuestion={onChangeQuestions} onChangeResponse={onChangeResponses} securityQuestions={securityQuestions} action={addUser} />
     }
 
 }
 
-export default SignUp;

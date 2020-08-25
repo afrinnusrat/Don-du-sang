@@ -5,7 +5,6 @@ import CustomButton from "../../../../generic/CustomButton";
 import CustomBtnIcon from "../../../../generic/CustomBtnIcon";
 import lightStyles from "./styles/lightStyles";
 import darkStyles from "./styles/darkStyles";
-import SecurityQuestions from "../securityQuestions";
 import "../../../../i18n";
 import { useTranslation } from "react-i18next";
 export default function BirthPicker(props) {
@@ -13,15 +12,17 @@ export default function BirthPicker(props) {
     const [imageModes, setImageModes] = React.useState({
         logo: require("../../../../assets/images/blood_donation.png"),
         background: require("../../../../assets/images/blood_donation_background.png")
-    })
+    });
     // i18n injection
     const { t, i18n } = useTranslation();
 
     const changeLanguage = (lng) => {
         if (i18n.language === "fr") {
-            i18n.changeLanguage("ar");
+            i18n.changeLanguage("en");
         } else if (i18n.language === "ar") {
             i18n.changeLanguage("fr");
+        }else if(i18n.language==="en"){
+            i18n.changeLanguage("ar");
         }
     };
     //
@@ -38,19 +39,29 @@ export default function BirthPicker(props) {
         <View style={styles.container}>
             <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { changeLanguage("ar") }} />
             <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
-            <Image
+            {/*<Image
                 source={imageModes.logo}
                 resizeMode="contain"
                 style={styles.logo}
+            ></Image>*/}
+            <Image
+                source={imageModes.background}
+                resizeMode="stretch"
+                style={{
+                    right: 0,
+                    width: 375,
+                    height: 270,
+                    position: "absolute",
+                    top: 50
+                }}
             ></Image>
-            <View style={{ marginTop: "50%", alignItems: "center" }}>
+            <View style={{ marginTop: "90%", alignItems: "center" }}>
                 <DatePicker
                     date={props.birthDate}
                     onDateChange={props.onChangeBirthDate}
                     mode="date"
                 />
-                <SecurityQuestions styles={styles} onChangeQuestion={props.onChangeQuestion} securityQuestions={props.securityQuestions} onChangeResponse={props.onChangeResponse} />
-                <CustomButton text={t("signUp_finishBtn")} style={{
+                <CustomButton text={t("signUp_birthPicker_finishBtn")} style={{
                     height: 36,
                     width: 265,
                     borderRadius: 13,

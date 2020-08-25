@@ -24,9 +24,11 @@ function PersInfo(props) {
 
     const changeLanguage = (lng) => {
         if (i18n.language === "fr") {
-            i18n.changeLanguage("ar");
+            i18n.changeLanguage("en");
         } else if (i18n.language === "ar") {
             i18n.changeLanguage("fr");
+        }else if(i18n.language==="en"){
+            i18n.changeLanguage("ar");
         }
     };
     //
@@ -96,12 +98,12 @@ function PersInfo(props) {
                 </View>
                 <CustomInputText style={styles.psswdClass} onChangeText={props.onChangePassword} isPassword placeholder={t("signUp_password")} withIcon></CustomInputText>
                 <CustomInputText style={styles.phoneClass} onChangeText={props.onChangePhoneNumber} placeholder={t("signUp_phone")}></CustomInputText>
-                <CustomButton text={t("signUp_confirmBtn")} style={styles.confirmClass} action={props.action}></CustomButton>
+                <CustomButton text={t("signUp_confirmBtn")} style={styles.confirmClass} action={props.action }></CustomButton>
                 <Text style={{ position: "relative", top: 20 }} onPress={() => {
                     props.navigation.navigate('SignInScreen');
                 }}>{t("signUp_link1")}</Text>
             </View>
-            <CustomBtnIcon style={styles.homeBtn} iconName="home" action={() => props.navigation.navigate('Home')}></CustomBtnIcon>
+            <CustomBtnIcon style={styles.homeBtn} iconName="home" ></CustomBtnIcon>
 
         </View>
     );
