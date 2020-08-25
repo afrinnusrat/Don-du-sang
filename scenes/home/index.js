@@ -28,10 +28,12 @@ function App({ navigation }) {
     const { t, i18n } = useTranslation();
 
     const changeLanguage = (lng) => {
-        if(i18n.language==="fr"){
-            i18n.changeLanguage("ar");
-        }else if(i18n.language==="ar"){
+        if (i18n.language === "fr") {
+            i18n.changeLanguage("en");
+        } else if (i18n.language === "ar") {
             i18n.changeLanguage("fr");
+        }else if(i18n.language==="en"){
+            i18n.changeLanguage("ar");
         }
     };
     //
