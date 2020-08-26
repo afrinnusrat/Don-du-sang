@@ -15,14 +15,14 @@ export default (props) => {
         background: require("../../../../assets/images/blood_donation_background.png")
     });
     // i18n injection
-    const { t,i18n } = useTranslation();
+    const { t, i18n } = useTranslation();
     //
     const changeLanguage = (lng) => {
         if (i18n.language === "fr") {
             i18n.changeLanguage("en");
         } else if (i18n.language === "ar") {
             i18n.changeLanguage("fr");
-        }else if(i18n.language==="en"){
+        } else if (i18n.language === "en") {
             i18n.changeLanguage("ar");
         }
     };
@@ -37,14 +37,25 @@ export default (props) => {
     }
     return (
         <View style={styles.container}>
-            <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => {changeLanguage('ar') }} />
+            <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { changeLanguage('ar') }} />
             <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
             <Image
                 source={imageModes.logo}
-                resizeMode="contain"
+                resizeMode="stretch"
                 style={styles.logo}
             ></Image>
-            <View style={{ marginTop: 120 }}>
+            <Image
+                source={imageModes.background}
+                resizeMode="stretch"
+                style={{
+                    right: 0,
+                    width: 375,
+                    height: 370,
+                    position: "absolute",
+                    top: 150
+                }}
+            ></Image>
+            <View style={styles.formContainer}>
                 <View>
                     <View style={styles.questionPicker}>
                         <Picker
@@ -103,7 +114,7 @@ export default (props) => {
                     <CustomInputText style={styles.response1} onChangeText={props.onChangeResponse} placeholder={t("answer")}></CustomInputText>
                 </View>
                 <CustomButton text={t("signUp_finishBtn")} style={styles.confirmBtn} action={props.action} />
-                <CustomButton text={t("skip")} style={styles.confirmBtn} action={() => { }} />
+                <CustomButton text={t("skip")} style={styles.confirmBtn} action={() => { props.navigation.navigate("DashboardScreen") }} />
             </View>
             <CustomBtnIcon style={styles.homeBtn} iconName="home" action={() => props.navigation.navigate('Home')}></CustomBtnIcon>
         </View>

@@ -30,7 +30,7 @@ export default StyleSheet.create({
         height: 26,
         width: 26,
         backgroundColor: "rgba(68,76,137,1)",
-        marginTop:25,
+        marginTop:15,
         shadowColor: "rgba(0,0,0,1)",
         shadowOffset: {
             width: 3,
@@ -41,7 +41,7 @@ export default StyleSheet.create({
         shadowRadius: 0,
     },
     logo:{
-        top: 42,
+        top: 32,
         width: 172,
         height: 132,
         position: "absolute"
@@ -80,5 +80,10 @@ export default StyleSheet.create({
         borderColor: "white",
         borderRadius: 12,
         backgroundColor: "rgba(230,230,230,0.5)"
+    },
+    formContainer:{
+        marginTop: 120, backgroundColor: "rgba(0,0,0,0.2)",
+        borderRadius: 20, width: 310,
+        height: 500, alignItems: "center",
     }
 });
