@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { View, Text, Image } from "react-native";
-import { Toast } from "native-base";
 //
 import CustomButton from "../../generic/CustomButton";
 import CustomInputText from "../../generic/CustomInputText";
@@ -10,6 +9,7 @@ import lightStyles from "./styles/lightStyles";
 import darkStyles from "./styles/darkStyles";
 import "../../i18n";
 import { useTranslation } from "react-i18next";
+import Toast from 'react-native-toast-message'
 
 export default function SignIn({ navigation }) {
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
@@ -42,9 +42,31 @@ export default function SignIn({ navigation }) {
 
         //
         if (userInfos.login === "Tomas" && userInfos.password === "aaa") {
-            alert("welcome")
+            Toast.show({
+                type: "success",
+                position: "top",
+                text1: "Welcome",
+                text2: "Bienvenue "+userInfos.login+" 👋",
+                visibilityTime: 1000,
+                autoHide: true,
+                topOffset: 30,
+                bottomOffset: 40,
+                onShow: () => {},
+                onHide: () => {}
+              });
         } else {
-            alert("une mauvaise saisie")
+            Toast.show({
+                type: "error",
+                position: "top",
+                text1: "Désolé",
+                text2: "Une mauvaise saisie ",
+                visibilityTime: 1000,
+                autoHide: true,
+                topOffset: 30,
+                bottomOffset: 40,
+                onShow: () => {},
+                onHide: () => {}
+              });
         }
     }
     const swichLight = () => {
@@ -90,6 +112,7 @@ export default function SignIn({ navigation }) {
                 }}>{t("signIn_link2")}</Text>
             </View>
             <CustomBtnIcon style={styles.homeBtn} iconName="home" action={()=>navigation.navigate('Home')}></CustomBtnIcon>
+            <Toast ref={(ref) => Toast.setRef(ref)} />
 
         </View>
     );
