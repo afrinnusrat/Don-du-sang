@@ -22,13 +22,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 28,
     shadowColor: "#111",
-    shadowOffset: {
+    /*shadowOffset: {
       width: 0,
       height: 2
     },
     shadowOpacity: 0.2,
     shadowRadius: 1.2,
-    elevation: 2,
+    elevation: 2,*/
     minWidth: 40,
     minHeight: 40
   },

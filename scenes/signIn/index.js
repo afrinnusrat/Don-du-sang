@@ -113,7 +113,6 @@ export default function SignIn({ navigation }) {
             </View>
             <CustomBtnIcon style={styles.homeBtn} iconName="home" action={()=>navigation.navigate('Home')}></CustomBtnIcon>
             <Toast ref={(ref) => Toast.setRef(ref)} />
-
         </View>
     );
 }
