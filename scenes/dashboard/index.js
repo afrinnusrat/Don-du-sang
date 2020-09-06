@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text,Button } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import Profile from "./Profile";
 import {
   createDrawerNavigator,
@@ -14,7 +14,7 @@ function Feed({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Feed Screen</Text>
-      <Button title="Déconnecter" onPress={async ()=>{
+      <Button title="Déconnecter" onPress={async () => {
         await AsyncStorage.removeItem("loggedUser")
         console.log(await AsyncStorage.getItem('loggedUser'))
       }}
@@ -62,12 +62,12 @@ const Drawer = createDrawerNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-    <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="Feed" component={Feed} />
-      <Drawer.Screen name="Mes RDVs" component={RDVs} />
-      <Drawer.Screen name="Historique" component={Historique} />
-      <Drawer.Screen name="Profile" component={Profile} />
-    </Drawer.Navigator>
+      <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
+        <Drawer.Screen name="Feed" component={Feed} />
+        <Drawer.Screen name="Mes RDVs" component={RDVs} />
+        <Drawer.Screen name="Historique" component={Historique} />
+        <Drawer.Screen name="Profile" component={Profile} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 }

@@ -62,10 +62,7 @@ export default function SignIn({ navigation }) {
                 onHide: () => { }
             });
             await AsyncStorage.setItem("loggedUser", JSON.stringify({ login: userInfos.login, password: userInfos.password }));
-            //navigation.navigate("Home");
-            /** 
-             * setLogged(true)
-             */
+            navigation.navigate("Home");
         } else {
             Toast.show({
                 type: "error",
