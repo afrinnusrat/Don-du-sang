@@ -1,10 +1,25 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Button } from "react-native";
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default (props) => {
+    const [user, setUser] = React.useState({})
+    const getData = async () => {
+        if (await AsyncStorage.getItem("loggedUser") != null)
+            setUser(JSON.parse(await AsyncStorage.getItem("loggedUser")))
+    }
+    React.useEffect(() => {
+        getData();
+    })
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Profile</Text>
+            <Text>Bonjour {user?.login}</Text>
+            <Button title="Déconnecter" onPress={async () => {
+                await AsyncStorage.removeItem("loggedUser")
+                console.log(await AsyncStorage.getItem('loggedUser'))
+            }}
+            />
         </View>
     )
 }
