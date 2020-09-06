@@ -114,7 +114,7 @@ export default (props) => {
                     <CustomInputText style={styles.response1} onChangeText={props.onChangeResponse} placeholder={t("answer")}></CustomInputText>
                 </View>
                 <CustomButton text={t("signUp_finishBtn")} style={styles.confirmBtn} action={props.action} />
-                <CustomButton text={t("skip")} style={styles.confirmBtn} action={() => { props.navigation.navigate("DashboardScreen") }} />
+            <CustomButton text={t("skip")} style={styles.confirmBtn} action={() => { /*props.navigation.navigate("DashboardScreen")*/ }} />
             </View>
             <CustomBtnIcon style={styles.homeBtn} iconName="home" action={() => props.navigation.navigate('Home')}></CustomBtnIcon>
         </View>

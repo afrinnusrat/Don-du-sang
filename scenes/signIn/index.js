@@ -10,6 +10,9 @@ import darkStyles from "./styles/darkStyles";
 import "../../i18n";
 import { useTranslation } from "react-i18next";
 import Toast from 'react-native-toast-message'
+import Config from "../../env.json";
+import axios from "axios";
+import AsyncStorage from '@react-native-community/async-storage';
 
 export default function SignIn({ navigation }) {
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
@@ -26,7 +29,7 @@ export default function SignIn({ navigation }) {
             i18n.changeLanguage("en");
         } else if (i18n.language === "ar") {
             i18n.changeLanguage("fr");
-        }else if(i18n.language==="en"){
+        } else if (i18n.language === "en") {
             i18n.changeLanguage("ar");
         }
     };
@@ -37,23 +40,32 @@ export default function SignIn({ navigation }) {
     const onChangePsswd = (text) => {
         setUserInfos({ ...userInfos, password: text });
     }
-    const connexion = () => {
+    const connexion = async () => {
         // gotta add axios here
-
+        if (Config.ngrok_start) {
+            axios.get("http://localhost:2020/user/", {}, {})
+                .then(res => { })
+                .catch(ex => { })
+        }
         //
         if (userInfos.login === "Tomas" && userInfos.password === "aaa") {
             Toast.show({
                 type: "success",
                 position: "top",
                 text1: "Welcome",
-                text2: "Bienvenue "+userInfos.login+" 👋",
+                text2: "Bienvenue " + userInfos.login + " 👋",
                 visibilityTime: 1000,
                 autoHide: true,
                 topOffset: 30,
                 bottomOffset: 40,
-                onShow: () => {},
-                onHide: () => {}
-              });
+                onShow: () => { },
+                onHide: () => { }
+            });
+            await AsyncStorage.setItem("loggedUser", JSON.stringify({ login: userInfos.login, password: userInfos.password }));
+            //navigation.navigate("Home");
+            /** 
+             * setLogged(true)
+             */
         } else {
             Toast.show({
                 type: "error",
@@ -64,9 +76,9 @@ export default function SignIn({ navigation }) {
                 autoHide: true,
                 topOffset: 30,
                 bottomOffset: 40,
-                onShow: () => {},
-                onHide: () => {}
-              });
+                onShow: () => { },
+                onHide: () => { }
+            });
         }
     }
     const swichLight = () => {
@@ -81,7 +93,7 @@ export default function SignIn({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.sloganContainer}>
-                <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => {changeLanguage('ar') }} />
+                <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { changeLanguage('ar') }} />
                 <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
                 <Image
                     source={imageModes.logo}
@@ -111,7 +123,7 @@ export default function SignIn({ navigation }) {
                     //navigation.navigate('ForgotPasswordScreen');
                 }}>{t("signIn_link2")}</Text>
             </View>
-            <CustomBtnIcon style={styles.homeBtn} iconName="home" action={()=>navigation.navigate('Home')}></CustomBtnIcon>
+            <CustomBtnIcon style={styles.homeBtn} iconName="home" action={() => navigation.navigate('Home')}></CustomBtnIcon>
             <Toast ref={(ref) => Toast.setRef(ref)} />
         </View>
     );

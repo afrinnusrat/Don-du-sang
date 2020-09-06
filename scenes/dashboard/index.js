@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text,Button } from 'react-native';
 import Profile from "./Profile";
 import {
   createDrawerNavigator,
@@ -7,11 +7,18 @@ import {
   DrawerItemList,
   DrawerItem,
 } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 function Feed({ navigation }) {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Feed Screen</Text>
+      <Button title="Déconnecter" onPress={async ()=>{
+        await AsyncStorage.removeItem("loggedUser")
+        console.log(await AsyncStorage.getItem('loggedUser'))
+      }}
+      />
       {/*<Button title="Open drawer" onPress={() => navigation.openDrawer()} />
       <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />*/}
     </View>
@@ -26,12 +33,12 @@ function RDVs() {
   );
 }
 function Historique() {
-    return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Mon historique</Text>
-      </View>
-    );
-  }
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Mon historique</Text>
+    </View>
+  );
+}
 
 function CustomDrawerContent(props) {
   return (
@@ -51,19 +58,16 @@ function CustomDrawerContent(props) {
 
 const Drawer = createDrawerNavigator();
 
-function MyDrawer() {
+
+export default function App() {
   return (
+    <NavigationContainer>
     <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
       <Drawer.Screen name="Feed" component={Feed} />
       <Drawer.Screen name="Mes RDVs" component={RDVs} />
       <Drawer.Screen name="Historique" component={Historique} />
       <Drawer.Screen name="Profile" component={Profile} />
     </Drawer.Navigator>
-  );
-}
-
-export default function App() {
-  return (
-      <MyDrawer />
+    </NavigationContainer>
   );
 }
