@@ -8,7 +8,8 @@ import {
   DrawerItem,
 } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import AsyncStorage from '@react-native-community/async-storage';
+import { store } from "../../store";
+import { Provider,connect } from "react-redux";
 
 function Feed({ navigation }) {
   return (
@@ -51,18 +52,21 @@ function CustomDrawerContent(props) {
   );
 }
 
+let ProfileStore=connect(state => ({ state: state }))(Profile)
 const Drawer = createDrawerNavigator();
 
 
 export default function App() {
   return (
-    <NavigationContainer>
-      <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
-        <Drawer.Screen name="Feed" component={Feed} />
-        <Drawer.Screen name="Mes RDVs" component={RDVs} />
-        <Drawer.Screen name="Historique" component={Historique} />
-        <Drawer.Screen name="Profile" component={Profile} />
-      </Drawer.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
+          <Drawer.Screen name="Feed" component={Feed} />
+          <Drawer.Screen name="Mes RDVs" component={RDVs} />
+          <Drawer.Screen name="Historique" component={Historique} />
+          <Drawer.Screen name="Profile" component={ProfileStore} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }

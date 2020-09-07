@@ -7,13 +7,14 @@ import Home from "./scenes/home";
 import Dashboard from "./scenes/dashboard"
 import { View, ActivityIndicator } from "react-native";
 import AsyncStorage from '@react-native-community/async-storage';
-
+import { Provider, connect } from "react-redux";
+import { store } from "./store"
 //
 const Drawer = createDrawerNavigator();
 
 function App() {
   //
-  const [logged, setLogged] = React.useState(false);
+  const [logged, setLogged] = React.useState(store.getState().logged);
   const [isLoading, setIsLoading] = React.useState(true);
 
   const getToken = async () => {
@@ -27,9 +28,15 @@ function App() {
     }
   }
   React.useEffect(() => {
-    console.log("Home here !!")
+    console.log(store.getState().logged)
+    store.subscribe(()=>{
+      setLogged(store.getState().logged)
+    })
     getToken();
   }, []);
+  let HomeStore = connect(state => ({ state: state }))(Home);
+  let SignInStore = connect(state => ({ state: state }))(SignIn)
+  let SignUpStore = connect(state => ({ state: state }))(SignUp)
   if (isLoading) {
     return (
       <View style={{
@@ -44,19 +51,21 @@ function App() {
     )
   } else if (logged && !isLoading) {
     return (
-      <Dashboard />
+        <Dashboard />
     );
   }
   else {
     return (
-      <NavigationContainer>
-        <Drawer.Navigator initialRouteName="Home">
-          <Drawer.Screen name="Home" component={Home} />
-          <Drawer.Screen name="SignInScreen" component={SignIn} />
-          <Drawer.Screen name="SignUpScreen" component={SignUp} />
-          {/*<Drawer.Screen name="DashboardScreen" component={Dashboard} />*/}
-        </Drawer.Navigator>
-      </NavigationContainer>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Drawer.Navigator initialRouteName="Home">
+            <Drawer.Screen name="Home" component={HomeStore} />
+            <Drawer.Screen name="SignInScreen" component={SignInStore} />
+            <Drawer.Screen name="SignUpScreen" component={SignUpStore} />
+            {/*<Drawer.Screen name="DashboardScreen" component={Dashboard} />*/}
+          </Drawer.Navigator>
+        </NavigationContainer>
+      </Provider>
     );
   }
 }

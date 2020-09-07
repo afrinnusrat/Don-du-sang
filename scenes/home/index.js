@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image, ActivityIndicator } from "react-native";
+import { View, Image } from "react-native";
 
 //
 import CustomButton from "../../generic/CustomButton";
@@ -15,7 +15,7 @@ import darkStyles from "./styles/darkMode";
 import "../../i18n";
 import { useTranslation } from "react-i18next";
 //
-function App({ navigation }) {
+function App({ navigation,state,dispatch }) {
 
     //
     const [styles, setStyles] = React.useState(lightStyles);
@@ -45,6 +45,9 @@ function App({ navigation }) {
             setImageModes({ logo: require("../../assets/images/blood_donation.png"), background: require("../../assets/images/blood_donation_background.png") })
         }
     }
+    React.useEffect(()=>{
+        console.log(state)
+    })
     return (
         <View style={styles.container}>
             <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { changeLanguage('ar') }} />
@@ -67,6 +70,9 @@ function App({ navigation }) {
             ></Image>
             <CustomButton style={styles.signInClass} text={t("signIn_title")} action={() => {
                 navigation.navigate('SignInScreen');
+                /*dispatch({type:"AUTH",user:{
+                    login:"ismail",password:"noidea",location:"usa", type:"donor"
+                }})*/
             }} ></CustomButton>
             <CustomButton style={styles.signUpClass} text={t("signUp_title")} action={() => {
                 navigation.navigate('SignUpScreen');
@@ -78,6 +84,5 @@ function App({ navigation }) {
         </View>
     );
 }
-
 
 export default App;

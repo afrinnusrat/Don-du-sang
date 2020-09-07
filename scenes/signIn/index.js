@@ -14,7 +14,7 @@ import Config from "../../env.json";
 import axios from "axios";
 import AsyncStorage from '@react-native-community/async-storage';
 
-export default function SignIn({ navigation }) {
+export default function SignIn({ navigation,state,dispatch }) {
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
     const [styles, setStyles] = React.useState(lightStyles);
     const [imageModes, setImageModes] = React.useState({
@@ -61,8 +61,10 @@ export default function SignIn({ navigation }) {
                 onShow: () => { },
                 onHide: () => { }
             });
-            await AsyncStorage.setItem("loggedUser", JSON.stringify({ login: userInfos.login, password: userInfos.password }));
-            navigation.navigate("Home");
+           // await AsyncStorage.setItem("loggedUser", JSON.stringify({ login: userInfos.login, password: userInfos.password }));
+            //navigation.navigate("Home");
+            dispatch({type:"AUTH",user:{...state.user,login:userInfos.login,password:userInfos.password}})
+            navigation.navigate("Home")
         } else {
             Toast.show({
                 type: "error",
