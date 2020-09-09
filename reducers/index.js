@@ -1,3 +1,5 @@
+import AsyncStorage from '@react-native-community/async-storage';
+
 const initState={
     logged:false,
     darkMode:false,
@@ -8,8 +10,12 @@ const initState={
         location:""
     }
 }
-
+const setLogged=async (logged)=>{
+    logged=(await AsyncStorage.getItem("loggedUser")!=null);
+}
 export default (state=initState,action)=>{
+    //let newLogging=false;
+    //setLogged(newLogging);
     if(action.type==="AUTH"){
         return {
             ...state,
@@ -32,6 +38,8 @@ export default (state=initState,action)=>{
             logged:false,
             user:initState.user
         }
+    }else if(action.type==="CREATE_ACCOUNT"){
+        return state
     }
     return state
 }

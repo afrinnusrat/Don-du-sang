@@ -9,8 +9,14 @@ export default ({navigation,state,dispatch}) => {
             setUser(JSON.parse(await AsyncStorage.getItem("loggedUser")))
     }
     React.useEffect(() => {
-        getData();
-    })
+        let isSync=false;
+        if(!isSync){
+            getData();
+        }
+        return ()=>{
+            isSync=true
+        }
+    },[])
     return (
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <Text>Profile</Text>

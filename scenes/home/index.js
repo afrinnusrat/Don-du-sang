@@ -70,9 +70,6 @@ function App({ navigation,state,dispatch }) {
             ></Image>
             <CustomButton style={styles.signInClass} text={t("signIn_title")} action={() => {
                 navigation.navigate('SignInScreen');
-                /*dispatch({type:"AUTH",user:{
-                    login:"ismail",password:"noidea",location:"usa", type:"donor"
-                }})*/
             }} ></CustomButton>
             <CustomButton style={styles.signUpClass} text={t("signUp_title")} action={() => {
                 navigation.navigate('SignUpScreen');
