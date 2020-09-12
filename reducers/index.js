@@ -1,53 +1,65 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-const initState={
-    logged:false,
-    darkMode:false,
-    lightMode:true,
-    user:{
-        login:"gregoire",
-        password:"",
-        type:"",
-        location:""
+let initState = {
+    logged: false,
+    darkMode: false,
+    lightMode: true,
+    user: {
+        login: "gregoire",
+        password: "",
+        type: "",
+        location: ""
     }
-}
-const setLogged=async (logged)=>{
-    logged=(await AsyncStorage.getItem("loggedUser")!=null);
-}
-export default (state=initState,action)=>{
-    //let newLogging=false;
-    //setLogged(newLogging);
-    if(action.type==="AUTH"){
-        return {
-            ...state,
-            logged:true,
-            user:action.user
-        }
-    }else if(action.type==="DARK_THEME"){
-        return {
-            ...state,
-            darkMode:true,
-            lightMode:false
-        }
-    }else if(action.type==="LIGHT_THEME"){
-        return {
-            ...state,
-            darkMode:false,
-            lightMode:true
-        }
-    }else if(action.type==="UPDATE_PROFILE"){
-        return {
-            ...state,
-            user:action.user
-        }
-    }else if(action.type==="DISCONNECT"){
-        return {
-            ...state,
-            logged:false,
-            user:initState.user
-        }
-    }else if(action.type==="CREATE_ACCOUNT"){
-        return state
+};/*
+(async ()=>{
+    if(await AsyncStorage.getItem("loggedUser")!=null){
+        initState.logged=true
+        //initState.user=JSON.parse(await AsyncStorage.getItem("loggedUser"));
     }
-    return state
+})();*/
+
+export default (state = initState, action) => {
+    switch (action.type) {
+        case "AUTH":
+            return {
+                ...state,
+                logged: true,
+                user: action.user
+            }
+        case "DARK_THEME":
+            return {
+                ...state,
+                darkMode: true,
+                lightMode: false
+            }
+        case "LIGHT_THEME":
+            return {
+                ...state,
+                darkMode: false,
+                lightMode: true
+            }
+        case "UPDATE_PROFILE":
+            return {
+                ...state,
+                user: action.user
+            }
+        case "DISCONNECT":
+            return {
+                ...state,
+                logged: false,
+                user: initState.user
+            }
+        case "CREATE_ACCOUNT":
+            return state;
+        case "ADD_LIKE":
+            return state
+        case "REMOVE_LIKE":
+            return state;
+        case "ADD_COMMENT":
+            return state;
+        case "REMOVE_COMMENT":
+            return state;
+        default:
+            return state;
+    }
 }
