@@ -1,10 +1,15 @@
 {
+  "loading":"Chargement ...",
   "signIn_title": "Se connecter",
   "signIn_login": "Login",
   "signIn_password": "Mot de passe",
   "signIn_confirmBtn": "Confirmer",
   "signIn_link1": "Pas de compte ?",
   "signIn_link2": "Oublié le mot de passe ?",
+  "signIn_confirm_success_title": "Welcome",
+  "signIn_confirm_success_message": "Bienvenue 👋",
+  "signIn_confirm_error_title": "Désolé",
+  "signIn_confirm_error_message": "Une mauvaise saisie",
 
   "signUp_title": "S'inscrire",
   "signUp_lname": "Nom",
@@ -23,8 +28,8 @@
     "Votre animal préféré ?",
     "La personalité modèle pour vous ?"
   ],
-  "answer":"Réponse",
+  "answer": "Réponse",
   "signUp_birthPicker_finishBtn": "Confirmer",
-  "signUp_finishBtn":"Terminer",
-  "skip":"Passer"
+  "signUp_finishBtn": "Terminer",
+  "skip": "Passer"
 }

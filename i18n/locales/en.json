@@ -1,10 +1,15 @@
 {
+  "loading":"Loading ...",
   "signIn_title": "Sign In",
   "signIn_login": "Login",
   "signIn_password": "Password",
   "signIn_confirmBtn": "Confirm",
   "signIn_link1": "sign-Up ?",
   "signIn_link2": "Forgot password ?",
+  "signIn_confirm_success_title":"Welcome",
+  "signIn_confirm_success_message":"Welcome 👋",
+  "signIn_confirm_error_title":"Sorry",
+  "signIn_confirm_error_message":"A bad Login/Password",
 
   "signUp_title": "Sign Up",
   "signUp_lname": "Lastname",

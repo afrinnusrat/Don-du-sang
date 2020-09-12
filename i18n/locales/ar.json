@@ -1,17 +1,21 @@
 {
+  "loading":"جاري التحقق ...",
   "signIn_title": "تسجيل الدخول",
   "signIn_login": "رمز الدخول",
   "signIn_password": "كلمة المرور",
   "signIn_confirmBtn": "تأكيد",
   "signIn_link1": "إنشاء حساب ؟",
   "signIn_link2": "نسيت كلمة المرور ؟",
+  "signIn_confirm_success_title": "! مرحبا",
+  "signIn_confirm_success_message": "مرحبا بك ",
+  "signIn_confirm_error_title": "عذرًا",
+  "signIn_confirm_error_message": "معلومات خاطئة !!",
+
   "signUp_title": "إنشاء حساب",
   "signUp_lname": "الإسم العائلي",
   "signUp_fname": "الإسم الشخصي",
-
   "gender_male": "ذكر",
   "gender_female": "أنثى",
-
   "signUp_password": "كلمة المرور",
   "signUp_phone": "رقم الهاتف",
   "signUp_confirmBtn": "تأكيد",
@@ -24,8 +28,8 @@
     "حيوانك المفضل ؟",
     "من هو قدوتك ؟"
   ],
-  "answer":"الجواب",
+  "answer": "الجواب",
   "signUp_birthPicker_finishBtn": "تأكيد",
-  "signUp_finishBtn":"إنهاء",
-  "skip":"تخطي"
+  "signUp_finishBtn": "إنهاء",
+  "skip": "تخطي"
 }
