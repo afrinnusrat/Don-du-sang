@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 const initState={
     logged:false,
     darkMode:false,
+    lightMode:true,
     user:{
         login:"gregoire",
         password:"",
@@ -25,7 +26,14 @@ export default (state=initState,action)=>{
     }else if(action.type==="DARK_THEME"){
         return {
             ...state,
-            darkMode:true
+            darkMode:true,
+            lightMode:false
+        }
+    }else if(action.type==="LIGHT_THEME"){
+        return {
+            ...state,
+            darkMode:false,
+            lightMode:true
         }
     }else if(action.type==="UPDATE_PROFILE"){
         return {
