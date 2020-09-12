@@ -10,16 +10,7 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { store } from "../../store";
 import { Provider,connect } from "react-redux";
-
-function Feed({ navigation }) {
-  return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Feed Screen</Text>
-      {/*<Button title="Open drawer" onPress={() => navigation.openDrawer()} />
-      <Button title="Toggle drawer" onPress={() => navigation.toggleDrawer()} />*/}
-    </View>
-  );
-}
+import Feed from "./Feed"
 
 function RDVs() {
   return (
