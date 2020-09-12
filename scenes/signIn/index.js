@@ -13,9 +13,11 @@ import Toast from 'react-native-toast-message'
 import Config from "../../env.json";
 import axios from "axios";
 import AsyncStorage from '@react-native-community/async-storage';
+import Spinner from 'react-native-loading-spinner-overlay';
 
-export default function SignIn({ navigation,state,dispatch }) {
+export default function SignIn({ navigation, state, dispatch }) {
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
+    const [isLoading, setIsLoading] = React.useState(false);
     const [styles, setStyles] = React.useState(lightStyles);
     const [imageModes, setImageModes] = React.useState({
         logo: require("../../assets/images/blood_donation.png"),
@@ -42,43 +44,51 @@ export default function SignIn({ navigation,state,dispatch }) {
     }
     const connexion = async () => {
         // gotta add axios here
+        setIsLoading(true);
         if (Config.ngrok_start) {
             axios.get("http://localhost:2020/user/", {}, {})
                 .then(res => { })
                 .catch(ex => { })
+        } else {
+            if (userInfos.login === "Tomas" && userInfos.password === "aaa") {
+                setTimeout(() => {
+                    setIsLoading(false);
+                    Toast.show({
+                        type: "success",
+                        position: "top",
+                        text1: "Welcome",
+                        text2: "Bienvenue " + userInfos.login + " 👋",
+                        visibilityTime: 1000,
+                        autoHide: true,
+                        topOffset: 30,
+                        bottomOffset: 40,
+                        onShow: () => { },
+                        onHide: () => { }
+                    });
+                }, 2000)
+                // await AsyncStorage.setItem("loggedUser", JSON.stringify({ login: userInfos.login, password: userInfos.password }));
+                //dispatch({type:"AUTH",user:{...state.user,login:userInfos.login,password:userInfos.password}})
+                //navigation.navigate("Home")
+
+            } else {
+                setTimeout(() => {
+                    setIsLoading(false);
+                    Toast.show({
+                        type: "error",
+                        position: "top",
+                        text1: "Désolé",
+                        text2: "Une mauvaise saisie ",
+                        visibilityTime: 1000,
+                        autoHide: true,
+                        topOffset: 30,
+                        bottomOffset: 40,
+                        onShow: () => { },
+                        onHide: () => { }
+                    });
+                }, 2000)
+            }
         }
         //
-        if (userInfos.login === "Tomas" && userInfos.password === "aaa") {
-            Toast.show({
-                type: "success",
-                position: "top",
-                text1: "Welcome",
-                text2: "Bienvenue " + userInfos.login + " 👋",
-                visibilityTime: 1000,
-                autoHide: true,
-                topOffset: 30,
-                bottomOffset: 40,
-                onShow: () => { },
-                onHide: () => { }
-            });
-           // await AsyncStorage.setItem("loggedUser", JSON.stringify({ login: userInfos.login, password: userInfos.password }));
-            //navigation.navigate("Home");
-            dispatch({type:"AUTH",user:{...state.user,login:userInfos.login,password:userInfos.password}})
-            navigation.navigate("Home")
-        } else {
-            Toast.show({
-                type: "error",
-                position: "top",
-                text1: "Désolé",
-                text2: "Une mauvaise saisie ",
-                visibilityTime: 1000,
-                autoHide: true,
-                topOffset: 30,
-                bottomOffset: 40,
-                onShow: () => { },
-                onHide: () => { }
-            });
-        }
     }
     const swichLight = () => {
         if (styles === lightStyles) {
@@ -112,6 +122,11 @@ export default function SignIn({ navigation,state,dispatch }) {
                 ></Image>
             </View>
             <View style={styles.formContainer}>
+                <Spinner
+                    visible={isLoading}
+                    textContent={'En cours ...'}
+                    textStyle={{ color: '#FFF' }}
+                />
                 <CustomInputText style={styles.loginInput} placeholder={t("signIn_login")} withIcon={false} onChangeText={onChangeLogin}></CustomInputText>
                 <CustomInputText style={styles.passwordInput} isPassword placeholder={t("signIn_password")} withIcon={true} onChangeText={onChangePsswd}></CustomInputText>
                 <CustomButton action={connexion} text={t("signIn_confirmBtn")} style={styles.confirmBtn}></CustomButton>
