@@ -56,8 +56,8 @@ export default function SignIn({ navigation, state, dispatch }) {
                     Toast.show({
                         type: "success",
                         position: "top",
-                        text1: "Welcome",
-                        text2: "Bienvenue " + userInfos.login + " 👋",
+                        text1: t("signIn_confirm_success_title"),
+                        text2: t("signIn_confirm_success_message") + userInfos.login ,
                         visibilityTime: 1000,
                         autoHide: true,
                         topOffset: 30,
@@ -65,19 +65,20 @@ export default function SignIn({ navigation, state, dispatch }) {
                         onShow: () => { },
                         onHide: () => { }
                     });
+                    // await AsyncStorage.setItem("loggedUser", JSON.stringify({ login: userInfos.login, password: userInfos.password }));
                 }, 2000)
-                // await AsyncStorage.setItem("loggedUser", JSON.stringify({ login: userInfos.login, password: userInfos.password }));
-                //dispatch({type:"AUTH",user:{...state.user,login:userInfos.login,password:userInfos.password}})
-                //navigation.navigate("Home")
-
+                setTimeout(()=>{
+                    dispatch({ type: "AUTH", user: { ...state.user, login: userInfos.login, password: userInfos.password } })
+                    navigation.navigate("Home")
+                },2500)
             } else {
                 setTimeout(() => {
                     setIsLoading(false);
                     Toast.show({
                         type: "error",
                         position: "top",
-                        text1: "Désolé",
-                        text2: "Une mauvaise saisie ",
+                        text1: t("signIn_confirm_error_title"),
+                        text2: t("signIn_confirm_error_message"),
                         visibilityTime: 1000,
                         autoHide: true,
                         topOffset: 30,
@@ -99,6 +100,7 @@ export default function SignIn({ navigation, state, dispatch }) {
             setImageModes({ logo: require("../../assets/images/blood_donation.png"), background: require("../../assets/images/blood_donation_background.png") })
         }
     }
+
     return (
         <View style={styles.container}>
             <View style={styles.sloganContainer}>
@@ -124,7 +126,7 @@ export default function SignIn({ navigation, state, dispatch }) {
             <View style={styles.formContainer}>
                 <Spinner
                     visible={isLoading}
-                    textContent={'En cours ...'}
+                    textContent={t("loading")}
                     textStyle={{ color: '#FFF' }}
                 />
                 <CustomInputText style={styles.loginInput} placeholder={t("signIn_login")} withIcon={false} onChangeText={onChangeLogin}></CustomInputText>

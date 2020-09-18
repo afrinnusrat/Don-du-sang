@@ -9,7 +9,29 @@ let initState = {
         password: "",
         type: "",
         location: ""
-    }
+    },
+    posts:[
+        {
+            author:{avatar:"https://picsum.photos/200/300?user",name:"Renard",bloodGroup:"0-"},
+            image:"https://picsum.photos/200/300?peace",
+            likes:0,
+            comments:0,
+            commentsData:[{author:{name:"Gregoire",avatar:"https://picsum.photos/200/300?nature"},text:"DDEDDEDDEDDE"}]
+        },
+        {
+            author:{avatar:"https://picsum.photos/200/300?user",name:"Renard",bloodGroup:"0-"},
+            image:"https://picsum.photos/200/300?peace",
+            likes:0,
+            comments:0,
+            commentsData:[{author:{name:"Gregoire",avatar:"https://picsum.photos/200/300?fire"},text:"DDEDDEDDEDDE"}]
+        },{
+            author:{avatar:"https://picsum.photos/200/300?user",name:"Renard",bloodGroup:"0-"},
+            image:"https://picsum.photos/200/300?peace",
+            likes:0,
+            comments:0,
+            commentsData:[{author:{name:"Gregoire",avatar:"https://picsum.photos/200/300?sky"},text:"DDEDDEDDEDDE"}]
+        }
+    ]
 };/*
 (async ()=>{
     if(await AsyncStorage.getItem("loggedUser")!=null){
@@ -58,6 +80,10 @@ export default (state = initState, action) => {
         case "ADD_COMMENT":
             return state;
         case "REMOVE_COMMENT":
+            return state;
+        case "ADD_POST":
+            return state;
+        case "REMOVE_POST":
             return state;
         default:
             return state;
