@@ -22,7 +22,7 @@ export default ({navigation,state,dispatch}) => {
             <Text>Profile</Text>
             <Text>Bonjour {user?.login}</Text>
             <Button title="Déconnecter" onPress={async () => {
-                //await AsyncStorage.removeItem("loggedUser")
+                await AsyncStorage.removeItem("loggedUser")
                 //console.log(await AsyncStorage.getItem('loggedUser'))
                 dispatch({type:"DISCONNECT",logged:false})
             }}

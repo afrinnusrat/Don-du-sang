@@ -46,8 +46,10 @@ function App({ navigation,state,dispatch }) {
         }
     }
     React.useEffect(()=>{
-        console.log(state)
-    })
+        console.log(state);
+        let isMounted=true;
+        return ()=>isMounted=false;
+    });
     return (
         <View style={styles.container}>
             <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { changeLanguage('ar') }} />

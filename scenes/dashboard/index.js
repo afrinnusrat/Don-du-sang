@@ -10,8 +10,8 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { store } from "../../store";
 import { Provider,connect } from "react-redux";
-import Feed from "./Feed"
-
+import Feed from "./Feed";
+import NewPost from "./posts/NewPost";
 function RDVs() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -43,7 +43,8 @@ function CustomDrawerContent(props) {
   );
 }
 
-let ProfileStore=connect(state => ({ state: state }))(Profile)
+let ProfileStore=connect(state => ({ state: state }))(Profile);
+let FeedStore=connect(state=>({state:state}))(Feed)
 const Drawer = createDrawerNavigator();
 
 
@@ -52,10 +53,11 @@ export default function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Drawer.Navigator drawerContent={props => <CustomDrawerContent {...props} />}>
-          <Drawer.Screen name="Feed" component={Feed} />
+          <Drawer.Screen name="Feed" component={FeedStore} />
           <Drawer.Screen name="Mes RDVs" component={RDVs} />
           <Drawer.Screen name="Historique" component={Historique} />
           <Drawer.Screen name="Profile" component={ProfileStore} />
+          <Drawer.Screen name="Nouvelle Annonce" component={NewPost} />
         </Drawer.Navigator>
       </NavigationContainer>
     </Provider>
