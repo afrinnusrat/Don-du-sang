@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
 
 //
 import CustomButton from "../../generic/CustomButton";
@@ -7,15 +7,13 @@ import CustomBtnIcon from "../../generic/CustomBtnIcon";
 
 import lightStyles from "./styles/lightMode";
 import darkStyles from "./styles/darkMode";
-//
-//import Dashboard from "../dashboard";
-/** 
- * 
- */
+
 import "../../i18n";
 import { useTranslation } from "react-i18next";
+import IconAwesome from "react-native-vector-icons/FontAwesome";
+
 //
-function App({ navigation,state,dispatch }) {
+function App({ navigation, state, dispatch }) {
 
     //
     const [styles, setStyles] = React.useState(lightStyles);
@@ -45,10 +43,10 @@ function App({ navigation,state,dispatch }) {
             setImageModes({ logo: require("../../assets/images/blood_donation.png"), background: require("../../assets/images/blood_donation_background.png") })
         }
     }
-    React.useEffect(()=>{
+    React.useEffect(() => {
         console.log(state);
-        let isMounted=true;
-        return ()=>isMounted=false;
+        let isMounted = true;
+        return () => isMounted = false;
     });
     return (
         <View style={styles.container}>
@@ -70,12 +68,13 @@ function App({ navigation,state,dispatch }) {
                     top: 150
                 }}
             ></Image>
-            <CustomButton style={styles.signInClass} text={t("signIn_title")} action={() => {
+            <CustomButton style={styles.signInClass} text={/*t("signIn_title")*/"Continuer avec Google"} action={() => {
                 navigation.navigate('SignInScreen');
-            }} ></CustomButton>
-            <CustomButton style={styles.signUpClass} text={t("signUp_title")} action={() => {
+            }} ><IconAwesome name="google-plus-square" style={{ color: 'white', fontSize: 25, position: "absolute", right: 20 }} /></CustomButton>
+            <CustomButton style={styles.signUpClass} text={/*t("signUp_title")*/"Continuer avec Facebook"} action={() => {
                 navigation.navigate('SignUpScreen');
-            }}></CustomButton>
+            }}><IconAwesome name="facebook-square" style={{ color: 'white', fontSize: 25, position: "absolute", right: 17 }} /></CustomButton>
+            <Text style={{ marginTop: 15 }}>Vous avez déjà un compte ? <Text style={{ color: "#C3041E", fontWeight: "bold" }} onPress={()=>navigation.navigate('SignInScreen')}>Se connecter</Text></Text>
             <CustomBtnIcon iconName="share" style={styles.homeBtn} action={() => { }} />
             <CustomBtnIcon iconName="star" style={styles.starIcon} action={() => { }} />
             <CustomBtnIcon iconName="human-greeting" style={styles.humanGreetingIcon} action={() => { }} />

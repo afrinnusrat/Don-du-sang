@@ -34,7 +34,7 @@ export default StyleSheet.create({
         elevation: 5,
         shadowOpacity: 1,
         shadowRadius: 0,
-        marginTop: 250,
+        marginTop: 220,
     },
     signUpClass: {
         height: 44,
@@ -49,7 +49,7 @@ export default StyleSheet.create({
         elevation: 5,
         shadowOpacity: 1,
         shadowRadius: 0,
-        marginTop: 20,
+        marginTop: 15,
     },
     lightDarkSwitch: {
         backgroundColor: "#144177",
