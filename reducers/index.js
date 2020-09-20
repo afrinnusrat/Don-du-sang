@@ -10,26 +10,29 @@ let initState = {
         type: "",
         location: ""
     },
-    posts:[
+    posts: [
         {
-            author:{avatar:"https://picsum.photos/200/300?user",name:"Renard",bloodGroup:"0-"},
-            image:"https://picsum.photos/200/300?peace",
-            likes:0,
-            comments:0,
-            commentsData:[{author:{name:"Gregoire",avatar:"https://picsum.photos/200/300?nature"},text:"DDEDDEDDEDDE"}]
+            id: "renard_0",
+            author: { avatar: "https://picsum.photos/200/300?user", name: "Renard", bloodGroup: "0-" },
+            image: "https://picsum.photos/200/300?peace",
+            likes: 0,
+            comments: 0,
+            commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?nature" }, text: "DDEDDEDDEDDE" }]
         },
         {
-            author:{avatar:"https://picsum.photos/200/300?user",name:"Renard",bloodGroup:"0-"},
-            image:"https://picsum.photos/200/300?peace",
-            likes:0,
-            comments:0,
-            commentsData:[{author:{name:"Gregoire",avatar:"https://picsum.photos/200/300?fire"},text:"DDEDDEDDEDDE"}]
-        },{
-            author:{avatar:"https://picsum.photos/200/300?user",name:"Renard",bloodGroup:"0-"},
-            image:"https://picsum.photos/200/300?peace",
-            likes:0,
-            comments:0,
-            commentsData:[{author:{name:"Gregoire",avatar:"https://picsum.photos/200/300?sky"},text:"DDEDDEDDEDDE"}]
+            id: "nathan_1",
+            author: { avatar: "https://picsum.photos/200/300?user", name: "Nathan", bloodGroup: "0-" },
+            image: "https://picsum.photos/200/300?peace",
+            likes: 0,
+            comments: 0,
+            commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?fire" }, text: "DDEDDEDDEDDE" }]
+        }, {
+            id: "richard_2",
+            author: { avatar: "https://picsum.photos/200/300?user", name: "Richard", bloodGroup: "0-" },
+            image: "https://picsum.photos/200/300?peace",
+            likes: 0,
+            comments: 0,
+            commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?sky" }, text: "DDEDDEDDEDDE" }]
         }
     ]
 };/*
@@ -39,7 +42,21 @@ let initState = {
         //initState.user=JSON.parse(await AsyncStorage.getItem("loggedUser"));
     }
 })();*/
-
+const addComment = (post_id, comment) => {
+    let posts = initState.posts;
+    posts.forEach(post => {
+        if (post.id === post_id) {
+            post.commentsData.push(
+                {
+                    author: comment.author,
+                    text: comment.text
+                }
+            )
+            post.comments++;
+        }
+    })
+    return posts;
+}
 export default (state = initState, action) => {
     switch (action.type) {
         case "AUTH":
@@ -78,7 +95,10 @@ export default (state = initState, action) => {
         case "REMOVE_LIKE":
             return state;
         case "ADD_COMMENT":
-            return state;
+            return {
+                ...state,
+                posts: addComment(action.data.post_id, action.data.comment)
+            };
         case "REMOVE_COMMENT":
             return state;
         case "ADD_POST":
