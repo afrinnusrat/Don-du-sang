@@ -7,6 +7,7 @@ function CustomButton(props) {
         <TouchableOpacity style={[styles.container, props.style]} onPress={props.action}>
             {props.icon &&<Icon name={props.iconName} style={styles.icon}></Icon>}
             {!props.icon && <Text style={styles.confirmer}>{props.text}</Text>}
+            {props.children}
         </TouchableOpacity>
     );
 }
@@ -32,7 +33,8 @@ const styles = StyleSheet.create({
     },
     confirmer: {
         color: "white",
-        fontSize: 14
+        fontSize: 16,
+        fontWeight:"bold"
     }
 });
 
