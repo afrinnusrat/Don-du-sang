@@ -8,7 +8,7 @@ let initState = {
         login: "gregoire",
         password: "",
         type: "",
-        location: ""
+        location: "",
     },
     posts: [
         {
@@ -33,6 +33,11 @@ let initState = {
             likes: 0,
             comments: 0,
             commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?sky" }, text: "DDEDDEDDEDDE" }]
+        }
+    ],
+    chats:[
+        {
+            id: 0, source:{}, destination: {}, data: "", message:{}
         }
     ]
 };/*
