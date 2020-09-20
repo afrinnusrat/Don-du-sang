@@ -12,6 +12,8 @@ import { store } from "../../store";
 import { Provider,connect } from "react-redux";
 import Feed from "./Feed";
 import NewPost from "./posts/NewPost";
+import Chats from "./chats";
+
 function RDVs() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -43,8 +45,9 @@ function CustomDrawerContent(props) {
   );
 }
 
-let ProfileStore=connect(state => ({ state: state }))(Profile);
-let FeedStore=connect(state=>({state:state}))(Feed)
+const ProfileStore=connect(state => ({ state: state }))(Profile);
+const FeedStore=connect(state=>({state:state}))(Feed);
+const ChatsStore=connect(state=>({state:state}))(Chats);
 const Drawer = createDrawerNavigator();
 
 
@@ -58,6 +61,7 @@ export default function App() {
           <Drawer.Screen name="Historique" component={Historique} />
           <Drawer.Screen name="Profile" component={ProfileStore} />
           <Drawer.Screen name="Nouvelle Annonce" component={NewPost} />
+          <Drawer.Screen name="Chats" component={ChatsStore} />
         </Drawer.Navigator>
       </NavigationContainer>
     </Provider>
