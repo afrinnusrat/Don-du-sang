@@ -44,7 +44,7 @@ function App({ navigation, state, dispatch }) {
         }
     }
     React.useEffect(() => {
-        console.log(state);
+        //console.log(state);
         let isMounted = true;
         return () => isMounted = false;
     });
@@ -52,29 +52,40 @@ function App({ navigation, state, dispatch }) {
         <View style={styles.container}>
             <CustomBtnIcon iconName="language" fontAwesome={true} style={styles.languageIcon} action={() => { changeLanguage('ar') }} />
             <CustomBtnIcon iconName="theme-light-dark" style={styles.lightDarkSwitch} action={swichLight} />
-            <Image
-                source={imageModes.logo}
-                resizeMode="cover"
-                style={styles.image}
-            ></Image>
+            
             <Image
                 source={imageModes.background}
                 resizeMode="stretch"
                 style={{
                     left: 0,
                     width: 375,
-                    height: 322,
+                    height: 300,
                     position: "absolute",
-                    top: 150
+                    top: 120
                 }}
             ></Image>
-            <CustomButton style={styles.signInClass} text={/*t("signIn_title")*/"Continuer avec Google"} action={() => {
-                navigation.navigate('SignInScreen');
-            }} ><IconAwesome name="google-plus-square" style={{ color: 'white', fontSize: 25, position: "absolute", right: 20 }} /></CustomButton>
-            <CustomButton style={styles.signUpClass} text={/*t("signUp_title")*/"Continuer avec Facebook"} action={() => {
+            <Image
+                source={imageModes.logo}
+                resizeMode="cover"
+                style={styles.image}
+            ></Image>
+            <CustomButton style={styles.googleSignUp} text={/*t("signIn_title")*/"Continuer avec Google"} action={() => {
+                //navigation.navigate('SignInScreen');
+            }} >
+                <IconAwesome name="google-plus-square" style={{ color: 'white', fontSize: 25, position: "absolute", right: 20 }} />
+            </CustomButton>
+            <CustomButton style={styles.facebookSignUp} text={/*t("signUp_title")*/"Continuer avec Facebook"} action={() => {
+                //navigation.navigate('SignUpScreen');
+            }}>
+                <IconAwesome name="facebook-square" style={{ color: 'white', fontSize: 25, position: "absolute", right: 17 }} />
+            </CustomButton>
+            <Text style={{marginTop:5}}>Ou</Text>
+            <CustomButton style={styles.profileSignUp} text={/*t("signUp_title")*/"Créer votre profil"} action={() => {
                 navigation.navigate('SignUpScreen');
-            }}><IconAwesome name="facebook-square" style={{ color: 'white', fontSize: 25, position: "absolute", right: 17 }} /></CustomButton>
-            <Text style={{ marginTop: 15 }}>Vous avez déjà un compte ? <Text style={{ color: "#C3041E", fontWeight: "bold" }} onPress={()=>navigation.navigate('SignInScreen')}>Se connecter</Text></Text>
+            }}>
+                <IconAwesome name="user-circle-o" style={{ color: 'white', fontSize: 25, position: "absolute", right: 17 }} />
+            </CustomButton>
+            <Text style={{ marginTop: 15 }}>Vous avez déjà un compte ? <Text style={{ color: "#C3041E", fontWeight: "bold" }} onPress={() => navigation.navigate('SignInScreen')}>Se connecter</Text></Text>
             <CustomBtnIcon iconName="share" style={styles.homeBtn} action={() => { }} />
             <CustomBtnIcon iconName="star" style={styles.starIcon} action={() => { }} />
             <CustomBtnIcon iconName="human-greeting" style={styles.humanGreetingIcon} action={() => { }} />

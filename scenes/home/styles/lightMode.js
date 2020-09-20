@@ -21,7 +21,7 @@ export default StyleSheet.create({
         width: 200,
         height: 177
     },
-    signInClass: {
+    googleSignUp: {
         height: 44,
         width: 280,
         backgroundColor: "#D0021B",
@@ -34,9 +34,9 @@ export default StyleSheet.create({
         elevation: 5,
         shadowOpacity: 1,
         shadowRadius: 0,
-        marginTop: 220,
+        marginTop: 180,
     },
-    signUpClass: {
+    facebookSignUp: {
         height: 44,
         width: 280,
         backgroundColor: "#144177",
@@ -49,7 +49,22 @@ export default StyleSheet.create({
         elevation: 5,
         shadowOpacity: 1,
         shadowRadius: 0,
-        marginTop: 15,
+        marginTop: 10,
+    },
+    profileSignUp: {
+        height: 44,
+        width: 280,
+        backgroundColor: "#4C8211",
+        borderRadius: 12,
+        shadowColor: "rgba(121,107,107,1)",
+        shadowOffset: {
+            width: 3,
+            height: 3
+        },
+        elevation: 5,
+        shadowOpacity: 1,
+        shadowRadius: 0,
+        marginTop: 5,
     },
     lightDarkSwitch: {
         backgroundColor: "#144177",
@@ -69,28 +84,28 @@ export default StyleSheet.create({
         backgroundColor: "#144177",
         position: "absolute",
         fontSize: 40,
-        bottom: 40,
+        bottom: 20,
         left: 45
     },
     starIcon: {
         backgroundColor: "#144177",
         position: "absolute",
         fontSize: 40,
-        bottom: 40,
+        bottom: 20,
         left: "55%"
     },
     homeBtn: {
         backgroundColor: "#144177",
         position: "absolute",
         fontSize: 40,
-        bottom: 40,
+        bottom: 20,
         right: 40
     },
-    questionIcon:{
+    questionIcon: {
         backgroundColor: "#144177",
         position: "absolute",
         fontSize: 40,
-        bottom: 40,
+        bottom: 20,
         left: "34%"
     }
 });

@@ -103,7 +103,7 @@ function PersInfo(props) {
                     props.navigation.navigate('SignInScreen');
                 }}>{t("signUp_link1")}</Text>
             </View>
-            <CustomBtnIcon style={styles.homeBtn} iconName="home" ></CustomBtnIcon>
+            <CustomBtnIcon style={styles.homeBtn} iconName="home" action={()=>props.navigation.navigate('Home')} ></CustomBtnIcon>
 
         </View>
     );
