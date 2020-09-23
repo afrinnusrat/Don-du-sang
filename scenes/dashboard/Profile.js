@@ -9,6 +9,10 @@ export default ({ navigation, state, dispatch }) => {
         if (await AsyncStorage.getItem("loggedUser") != null)
             setUser(JSON.parse(await AsyncStorage.getItem("loggedUser")))
     }
+    const disconnect = async () => {
+        await AsyncStorage.removeItem("loggedUser");
+        dispatch({ type: "DISCONNECT", logged: false })
+    }
     React.useEffect(() => {
         let isSync = false;
         if (!isSync) {
@@ -20,7 +24,7 @@ export default ({ navigation, state, dispatch }) => {
     }, [])
     return (
         <View style={styles.container}>
-            <Icon name="log-out" style={styles.logout} onPress={() => dispatch({ type: "DISCONNECT", logged: false })} />
+            <Icon name="log-out" style={styles.logout} onPress={() => disconnect()} />
             <Image style={styles.profileAvatar} source={{ uri: "https://thumbs.dreamstime.com/b/male-avatar-icon-flat-style-male-user-icon-cartoon-man-avatar-vector-stock-91602735.jpg" }} />
             <View>
                 <Text style={styles.title}><Text style={styles.subtitle}>Bio :</Text>{"\n"}Je suis un donneur régulier et {"\n"}aime donner du sang pour sauver des vies.</Text>
@@ -28,12 +32,6 @@ export default ({ navigation, state, dispatch }) => {
                 <Text style={styles.title}><Text style={styles.subtitle}>Groupe sanguin : </Text>{state.user.bloodGroup || "O+"}</Text>
                 <Text style={styles.title}><Text style={styles.subtitle}>Localisation : </Text>{state.user.location}</Text>
             </View>
-            {/*<Button title="Déconnecter" onPress={async () => {
-                await AsyncStorage.removeItem("loggedUser")
-                //console.log(await AsyncStorage.getItem('loggedUser'))
-                dispatch({ type: "DISCONNECT", logged: false })
-            }}
-        />*/}
         </View>
     )
 }
