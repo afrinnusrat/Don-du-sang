@@ -21,6 +21,7 @@ export default ({ route }) => {
             <View style={styles.chatTopBar}>
                 <Image source={{ uri: "https://picsum.photos/200/300?london" }} style={{ borderRadius: 100, width: 40, height: 40, marginRight: 10, marginLeft: 5, marginTop: 5 }} />
                 <Text style={{ marginTop: 15, fontWeight: "bold", color: "black" }}>{getDestination()}</Text>
+                <View style={{width:10,height:10,backgroundColor:"#58eb34",borderRadius:100}}></View>
             </View>
             <ScrollView style={{ marginTop: 20, marginLeft: 10 }}>
                 {messages.map((mssg, index) => {

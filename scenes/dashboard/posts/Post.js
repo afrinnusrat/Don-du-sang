@@ -13,6 +13,7 @@ export default (props) => {
     const [newComment, setNewComment] = React.useState("");
     const [liked, setLiked] = React.useState(false);
     const [voted, setVoted] = React.useState(false);
+    const [showCandidates, setShowCandidates] = React.useState(false);
     return (
         <Container style={{ height: "100%" }}>
             <Content>
@@ -55,8 +56,15 @@ export default (props) => {
                                     <Icon style={{ color: props.postData.commentsData.length != 0 ? "blue" : "grey" }} active name="chatbubbles" />
                                     <Text>{props.postData.commentsData.length} comments</Text>
                                 </Button>
-                                <Button style={{ position: "absolute", left: 125 }} transparent onPress={() => setVoted(!voted)}>
+                                <Button style={{ position: "absolute", left: 125 }} transparent onPress={() => {
+                                    if (props.postData.author.name !== store.getState().user.login) {
+                                        setVoted(!voted)
+                                        if (voted) {store.dispatch({ type: "REMOVE_CANDIDATE", data: { post_id: props.postData.id, candidate_name: store.getState().user.login } })}
+                                        else {store.dispatch({ type: "ADD_CANDIDATE", data: { post_id: props.postData.id, candidate: { id: props.postData.candidates.length , name: store.getState().user.login, avatar: "https://picsum.photos/200/300?sky" } } })}
+                                    } else { setShowCandidates(!showCandidates) }
+                                }}>
                                     <Icon style={{ color: voted ? "blue" : "grey" }} type="Entypo" active name="hand" />
+                                    <Text>{props.postData.candidates.length}</Text>
                                 </Button>
                             </View>
                         </Body>
@@ -99,6 +107,21 @@ export default (props) => {
                         )
                     })}
 
+                </View>
+            }
+            {showCandidates && !enableComment &&
+                <View>
+                    {props.postData.candidates.map((cand,index) => {
+                        return <View key={index} style={{
+                            flexWrap: 'wrap',
+                            alignItems: 'flex-start',
+                            flexDirection: 'row',
+                            marginTop: 10
+                        }}>
+                            <Image source={{ uri: cand.avatar }} style={{ borderRadius: 40, width: 60, height: 60 }} />
+                            <Text style={{marginTop:15,marginLeft:5}}>{cand.name}</Text>
+                        </View>
+                    })}
                 </View>
             }
         </Container>

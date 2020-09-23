@@ -12,26 +12,29 @@ let initState = {
     },
     posts: [
         {
-            id: "renard_0",
+            id: 0,
             author: { avatar: "https://picsum.photos/200/300?user", name: "Renard", bloodGroup: "0-" },
             image: "https://picsum.photos/200/300?peace",
             likes: 0,
             comments: 0,
+            candidates: [{ id: 0, name: "Gregoire", avatar: "https://picsum.photos/200/300?rain" }],
             commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?nature" }, text: "DDEDDEDDEDDE" }]
         },
         {
-            id: "nathan_1",
-            author: { avatar: "https://picsum.photos/200/300?user", name: "Nathan", bloodGroup: "0-" },
+            id: 1,
+            author: { avatar: "https://picsum.photos/200/300?user", name: "Tomas", bloodGroup: "0-" },
             image: "https://picsum.photos/200/300?peace",
             likes: 0,
             comments: 0,
+            candidates: [{ id: 0, name: "Gregoire", avatar: "https://picsum.photos/200/300?rain" }],
             commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?fire" }, text: "DDEDDEDDEDDE" }]
         }, {
-            id: "richard_2",
+            id: 2,
             author: { avatar: "https://picsum.photos/200/300?user", name: "Richard", bloodGroup: "0-" },
             image: "https://picsum.photos/200/300?peace",
             likes: 0,
             comments: 0,
+            candidates: [{ id: 0, name: "Gregoire", avatar: "https://picsum.photos/200/300?rain" }],
             commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?sky" }, text: "DDEDDEDDEDDE" }]
         }
     ],
@@ -42,7 +45,8 @@ let initState = {
         {
             id: 1, source: { name: "Keven", avatar: "" }, destination: { name: "Tomas", avatar: "" }, message: "Helping others is the best way to feel happy"
         }
-    ]
+    ],
+    users: []
 };/*
 (async ()=>{
     if(await AsyncStorage.getItem("loggedUser")!=null){
@@ -61,6 +65,27 @@ const addComment = (post_id, comment) => {
                 }
             )
             post.comments++;
+        }
+    })
+    return posts;
+}
+const addCandidate = (post_id, candidate) => {
+    let posts = initState.posts;
+    posts.forEach(post => {
+        if (post.id === post_id) {
+            post.candidates.push(candidate);
+        }
+    })
+    return posts;
+}
+const removeCandidate = (post_id, candidate_name) => {
+    let posts = initState.posts;
+    posts.forEach(post => {
+        if (post.id === post_id) {
+            post.candidates.forEach((cand, index) => {
+                if (cand.name === candidate_name)
+                    post.candidates.splice(index, 1)
+            })
         }
     })
     return posts;
@@ -121,6 +146,16 @@ export default (state = initState, action) => {
                 chats: moreChats
             };
         }
+        case "ADD_CANDIDATE":
+            return {
+                ...state,
+                posts: addCandidate(action.data.post_id, action.data.candidate)
+            };
+        case "REMOVE_CANDIDATE":
+            return {
+                ...state,
+                posts: removeCandidate(action.data.post_id, action.data.candidate_name)
+            };
         default:
             return state;
     }
