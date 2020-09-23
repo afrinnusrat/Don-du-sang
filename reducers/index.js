@@ -35,9 +35,12 @@ let initState = {
             commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?sky" }, text: "DDEDDEDDEDDE" }]
         }
     ],
-    chats:[
+    chats: [
         {
-            id: 0, source:{}, destination: {}, data: "", message:{}
+            id: 0, source: { name: "Tomas", avatar: "" }, destination: { name: "Keven", avatar: "" }, message: "Always keep trying .. unfold your core"
+        },
+        {
+            id: 1, source: { name: "Keven", avatar: "" }, destination: { name: "Tomas", avatar: "" }, message: "Helping others is the best way to feel happy"
         }
     ]
 };/*
@@ -110,6 +113,14 @@ export default (state = initState, action) => {
             return state;
         case "REMOVE_POST":
             return state;
+        case "ADD_CHAT": {
+            let moreChats = state.chats
+            moreChats.push(action.newChat)
+            return {
+                ...state,
+                chats: moreChats
+            };
+        }
         default:
             return state;
     }
