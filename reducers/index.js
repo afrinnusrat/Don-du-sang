@@ -9,41 +9,42 @@ let initState = {
         password: "",
         type: "",
         location: "",
+        avatar:""
     },
     posts: [
         {
             id: 0,
-            author: { avatar: "https://picsum.photos/200/300?user", name: "Renard", bloodGroup: "0-" },
+            author: { avatar: "https://picsum.photos/200/300?user", name: "Renard", bloodGroup: "O-" },
             image: "https://picsum.photos/200/300?peace",
             likes: 0,
             comments: 0,
-            candidates: [{ id: 0, name: "Gregoire", avatar: "https://picsum.photos/200/300?rain" }],
+            candidates: [{ id: 0, name: "Gregoire", avatar: "https://picsum.photos/200/300?rain", bloodGroup: "O+" }],
             commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?nature" }, text: "DDEDDEDDEDDE" }]
         },
         {
             id: 1,
-            author: { avatar: "https://picsum.photos/200/300?user", name: "Tomas", bloodGroup: "0-" },
+            author: { avatar: "https://picsum.photos/200/300?user", name: "Tomas", bloodGroup: "O-" },
             image: "https://picsum.photos/200/300?peace",
             likes: 0,
             comments: 0,
-            candidates: [{ id: 0, name: "Gregoire", avatar: "https://picsum.photos/200/300?rain" }],
+            candidates: [{ id: 0, name: "Gregoire", avatar: "https://picsum.photos/200/300?rain", bloodGroup: "O+" }],
             commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?fire" }, text: "DDEDDEDDEDDE" }]
         }, {
             id: 2,
-            author: { avatar: "https://picsum.photos/200/300?user", name: "Richard", bloodGroup: "0-" },
+            author: { avatar: "https://picsum.photos/200/300?user", name: "Richard", bloodGroup: "O-" },
             image: "https://picsum.photos/200/300?peace",
             likes: 0,
             comments: 0,
-            candidates: [{ id: 0, name: "Gregoire", avatar: "https://picsum.photos/200/300?rain" }],
+            candidates: [{ id: 0, name: "Gregoire", avatar: "https://picsum.photos/200/300?rain", bloodGroup: "O+" }],
             commentsData: [{ author: { name: "Gregoire", avatar: "https://picsum.photos/200/300?sky" }, text: "DDEDDEDDEDDE" }]
         }
     ],
     chats: [
         {
-            id: 0, source: { name: "Tomas", avatar: "" }, destination: { name: "Keven", avatar: "" }, message: "Always keep trying .. unfold your core"
+            id: 0, source: { name: "Tomas", avatar: "https://picsum.photos/200/300?chat" }, destination: { name: "Keven", avatar: "https://picsum.photos/200/300?chat" }, message: "Always keep trying .. unfold your core"
         },
         {
-            id: 1, source: { name: "Keven", avatar: "" }, destination: { name: "Tomas", avatar: "" }, message: "Helping others is the best way to feel happy"
+            id: 1, source: { name: "Keven", avatar: "https://picsum.photos/200/300?chat" }, destination: { name: "Tomas", avatar: "https://picsum.photos/200/300?chat" }, message: "Helping others is the best way to feel happy"
         }
     ],
     users: []

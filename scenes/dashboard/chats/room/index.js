@@ -1,17 +1,17 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, TextInput, ScrollView } from "react-native";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import {store} from "../../../../store"
+import { store } from "../../../../store"
 export default ({ route }) => {
-    const { chatTarget } = route.params;
-    const { state } = route.params;
-    const [messages, setMessages] = React.useState(chatTarget);
+    const { chatTarget, chat_destination, state } = route.params;
+    const [messages, setMessages] = React.useState(chatTarget ? chatTarget : []);
     const [newMessage, setNewMessage] = React.useState("");
+    const { user } = state;
 
     const getDestination = () => {
         let destination = ""
         messages.forEach(mssg => {
-            if (mssg.source.name !== state.user.login) destination = mssg.source.name;
+            if (mssg.source.name !== user.login) destination = mssg.source.name;
             else destination = mssg.destination.name;
         })
         return destination;
@@ -20,8 +20,8 @@ export default ({ route }) => {
         <View style={styles.container}>
             <View style={styles.chatTopBar}>
                 <Image source={{ uri: "https://picsum.photos/200/300?london" }} style={{ borderRadius: 100, width: 40, height: 40, marginRight: 10, marginLeft: 5, marginTop: 5 }} />
-                <Text style={{ marginTop: 15, fontWeight: "bold", color: "black" }}>{getDestination()}</Text>
-                <View style={{width:10,height:10,backgroundColor:"#58eb34",borderRadius:100}}></View>
+                <Text style={{ marginTop: 15, fontWeight: "bold", color: "black" }}>{chat_destination}</Text>
+                <View style={{ position: "absolute", right: 20, top: 20, width: 10, height: 10, backgroundColor: "red", borderRadius: 100 }}></View>
             </View>
             <ScrollView style={{ marginTop: 20, marginLeft: 10 }}>
                 {messages.map((mssg, index) => {
@@ -29,7 +29,7 @@ export default ({ route }) => {
                         <View key={index} style={styles.chatContainer}>
                             <Image source={{ uri: "https://picsum.photos/200/300?london" }} style={{ borderRadius: 100, width: 50, height: 50, marginRight: 3 }} />
                             <Text style={{ width: 250, marginTop: 10 }}>
-                                <Text style={{ fontWeight: "bold" }}>{mssg.source.name === state.user.login ? "Vous : " : mssg.source.name + " : "}</Text>
+                                <Text style={{ fontWeight: "bold" }}>{mssg.source.name === user.login ? "Vous : " : mssg.source.name + " : "}</Text>
                                 {mssg.message}
                             </Text>
                         </View>
@@ -43,18 +43,20 @@ export default ({ route }) => {
                     let moreMessages = messages;
                     moreMessages.push({
                         id: moreMessages.length,
-                        source: { name: state.user.login, avatar: "" },
-                        destination: { name: getDestination(), avatar: "" },
+                        source: { name: user.login, avatar: "https://picsum.photos/200/300?chat" },
+                        destination: { name: chat_destination, avatar: "https://picsum.photos/200/300?chat" },
                         message: newMessage
                     });
                     setMessages(moreMessages);
                     setNewMessage("")
-                    store.dispatch({type:"ADD_CHAT",newChat:{
-                        id: moreMessages.length,
-                        source: { name: state.user.login, avatar: "" },
-                        destination: { name: getDestination(), avatar: "" },
-                        message: newMessage
-                    }})
+                    store.dispatch({
+                        type: "ADD_CHAT", newChat: {
+                            id: moreMessages.length,
+                            source: { name: user.login, avatar: "https://picsum.photos/200/300?chat" },
+                            destination: { name: chat_destination, avatar: "https://picsum.photos/200/300?chat" },
+                            message: newMessage
+                        }
+                    })
                 }} />
             </View>
         </View>

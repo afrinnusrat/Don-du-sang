@@ -1,12 +1,18 @@
 import React from "react";
+import { ScrollView,RefreshControl } from "react-native"
 import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, Icon, Item, Input } from 'native-base';
 import { createStackNavigator } from '@react-navigation/stack';
 import RoomChat from "./room";
-import {store} from "../../../store"
+import { store } from "../../../store"
 const Chats = ({ route, navigation }) => {
     const { state } = route.params;
-    const [chats, setChats] = React.useState(state.chats)
-
+    const [chats, setChats] = React.useState(state.chats);
+    const [searchChat, setSearchChat] = React.useState("");
+    const [refreshing, setRefreshing] = React.useState(false);
+    const onRefresh = () => {
+        setRefreshing(true);
+        setTimeout(() => { setRefreshing(false); setChats(store.getState().chats) }, 1000)
+    };
     const mirrorExistance = (tb, ct) => {
         let exists = false
         tb.forEach(chat => {
@@ -24,35 +30,56 @@ const Chats = ({ route, navigation }) => {
                 chatters.push(chat)
         })
         chatters.forEach(chatter => {
-            if (!mirrorExistance(lastChatters,chatter)){
+            if (!mirrorExistance(lastChatters, chatter)) {
                 lastChatters.push(chatter)
             }
         })
-        return [chatters,lastChatters];
+        return [chatters, lastChatters];
     }
-    const extracted_Chat=(chatterName)=>{
-        let extractedChat=[]
-        getChats()[0].forEach(chat=>{
-            if(chat.source.name===chatterName || chat.destination.name===chatterName){
+    const extracted_Chat = (chatterName) => {
+        let extractedChat = []
+        getChats()[0].forEach(chat => {
+            if (chat.source.name === chatterName || chat.destination.name === chatterName) {
                 extractedChat.push(chat)
             }
         })
         return extractedChat;
     }
-    React.useEffect(()=>store.subscribe(()=>setChats(store.getState().chats)))
+    React.useEffect(() => {
+        store.subscribe(() => {
+            console.log("store changed ..")
+            setChats(store.getState().chats)
+        })
+    });
+    React.useState(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            console.log("navigation ...")
+            console.log(store.getState().chats.length)
+            setChats(store.getState().chats)
+        });
+        return unsubscribe;
+
+    }, [navigation])
     return (
         <Container>
             <Header searchBar rounded>
                 <Item>
                     <Icon name="ios-search" />
-                    <Input placeholder="Rechercher" />
+                    <Input placeholder="Rechercher" value={searchChat} onChangeText={(text) => {
+                        setSearchChat(text);
+
+                    }} />
                     <Icon name="chatbubbles" />
                 </Item>
             </Header>
-            <List>
-                {getChats()[1].map((chat, index) => {
+            <ScrollView
+                refreshControl={
+                    <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+                }
+            >
+                {chats.map((chat, index) => {
                     return (
-                        <ListItem key={index} avatar onPress={() => navigation.navigate("RoomChat", { state:state,chatTarget: extracted_Chat(chat.source.name!==state.user.login?chat.source.name:chat.destination.name) })}>
+                        <ListItem key={index} avatar onPress={() => navigation.navigate("RoomChat", { state: state, chat_destination: chat.source.name !== state.user.login ? chat.source.name : chat.destination.name, chatTarget: extracted_Chat(chat.source.name !== state.user.login ? chat.source.name : chat.destination.name) })}>
                             <Left>
                                 <Thumbnail source={{ uri: 'https://picsum.photos/200/300?london' }} />
                             </Left>
@@ -66,7 +93,7 @@ const Chats = ({ route, navigation }) => {
                         </ListItem>
                     )
                 })}
-            </List>
+            </ScrollView>
         </Container>
     )
 }

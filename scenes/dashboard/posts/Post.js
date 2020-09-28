@@ -112,15 +112,15 @@ export default (props) => {
             {showCandidates && !enableComment &&
                 <View>
                     {props.postData.candidates.map((cand,index) => {
-                        return <View key={index} style={{
+                        return <TouchableOpacity key={index} style={{
                             flexWrap: 'wrap',
                             alignItems: 'flex-start',
                             flexDirection: 'row',
                             marginTop: 10
-                        }}>
+                        }} onPress={()=>props.navigation.navigate("RoomChat",{state:store.getState(),chatTarget:[],chat_destination:cand.name})}>
                             <Image source={{ uri: cand.avatar }} style={{ borderRadius: 40, width: 60, height: 60 }} />
-                            <Text style={{marginTop:15,marginLeft:5}}>{cand.name}</Text>
-                        </View>
+                            <Text style={{marginTop:10,marginLeft:5}}><Text style={{fontWeight:'bold'}}>{cand.name}</Text>{'\ngroupe : '+cand.bloodGroup}</Text>
+                        </TouchableOpacity>
                     })}
                 </View>
             }

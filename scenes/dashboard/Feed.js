@@ -36,7 +36,7 @@ export default ({ navigation, state, dispatch }) => {
                 }
             >
                 {posts.map((post, index) => {
-                    return <Post key={index} postData={post} />
+                    return <Post key={index} postData={post} navigation={navigation} />
                 })}
             </ScrollView>
             {/*<Button title="Open drawer" onPress={() => navigation.openDrawer()} />
