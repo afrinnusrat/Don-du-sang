@@ -14,6 +14,7 @@ export default (props) => {
     const [liked, setLiked] = React.useState(false);
     const [voted, setVoted] = React.useState(false);
     const [showCandidates, setShowCandidates] = React.useState(false);
+    const [dotsOptions, setDotsOptions] = React.useState(false)
     return (
         <Container style={{ height: "100%" }}>
             <Content>
@@ -24,11 +25,44 @@ export default (props) => {
                             <Body>
                                 <Text>{props.postData.author.name}</Text>
                                 <Text note>groupe {props.postData.author.bloodGroup}</Text>
+                                <Icon style={{ position: "absolute", right: 10 }} name="dots-three-horizontal" type="Entypo" active onPress={() => setDotsOptions(!dotsOptions)} />
                             </Body>
                         </Left>
                     </CardItem>
                     <CardItem cardBody>
                         <Image source={{ uri: props.postData.image }} style={{ height: 200, width: null, flex: 1 }} />
+                        {dotsOptions &&
+                            <View style={{ position: 'absolute', top: -20, right: 10, width: 150, backgroundColor: 'white', borderStyle: 'solid', borderRadius: 12, borderWidth: 1, borderColor: 'black' }}>
+                                {props.postData.author.name === store.getState().user.login &&
+                                    <CardItem >
+                                        <Text>Supprimer</Text>
+                                        <Right>
+                                            <Icon style={{ color: "red" }} name="delete-forever" type="MaterialIcons" />
+                                        </Right>
+                                    </CardItem>
+                                }
+                                <CardItem >
+                                    <Text>Postuler</Text>
+                                    <Right>
+                                        <Icon name="hand" type="Entypo" />
+                                    </Right>
+                                </CardItem>
+                                <CardItem >
+                                    <Text>Consulter</Text>
+                                    <Right>
+                                        <Icon name="eye" type="FontAwesome" />
+                                    </Right>
+                                </CardItem>
+                                {props.postData.author.name !== store.getState().user.login &&
+                                    <CardItem >
+                                        <Text>Signaler</Text>
+                                        <Right>
+                                            <Icon name="report" type="MaterialIcons" />
+                                        </Right>
+                                    </CardItem>
+                                }
+                            </View>
+                        }
                     </CardItem>
                     <CardItem>
                         <Left>
@@ -59,8 +93,8 @@ export default (props) => {
                                 <Button style={{ position: "absolute", left: 125 }} transparent onPress={() => {
                                     if (props.postData.author.name !== store.getState().user.login) {
                                         setVoted(!voted)
-                                        if (voted) {store.dispatch({ type: "REMOVE_CANDIDATE", data: { post_id: props.postData.id, candidate_name: store.getState().user.login } })}
-                                        else {store.dispatch({ type: "ADD_CANDIDATE", data: { post_id: props.postData.id, candidate: { id: props.postData.candidates.length , name: store.getState().user.login, avatar: "https://picsum.photos/200/300?sky" } } })}
+                                        if (voted) { store.dispatch({ type: "REMOVE_CANDIDATE", data: { post_id: props.postData.id, candidate_name: store.getState().user.login } }) }
+                                        else { store.dispatch({ type: "ADD_CANDIDATE", data: { post_id: props.postData.id, candidate: { id: props.postData.candidates.length, name: store.getState().user.login, avatar: "https://picsum.photos/200/300?sky" } } }) }
                                     } else { setShowCandidates(!showCandidates) }
                                 }}>
                                     <Icon style={{ color: voted ? "blue" : "grey" }} type="Entypo" active name="hand" />
@@ -111,15 +145,15 @@ export default (props) => {
             }
             {showCandidates && !enableComment &&
                 <View>
-                    {props.postData.candidates.map((cand,index) => {
+                    {props.postData.candidates.map((cand, index) => {
                         return <TouchableOpacity key={index} style={{
                             flexWrap: 'wrap',
                             alignItems: 'flex-start',
                             flexDirection: 'row',
                             marginTop: 10
-                        }} onPress={()=>props.navigation.navigate("RoomChat",{state:store.getState(),chatTarget:[],chat_destination:cand.name})}>
+                        }} onPress={() => props.navigation.navigate("RoomChat", { state: store.getState(), chatTarget: [], chat_destination: cand.name })}>
                             <Image source={{ uri: cand.avatar }} style={{ borderRadius: 40, width: 60, height: 60 }} />
-                            <Text style={{marginTop:10,marginLeft:5}}><Text style={{fontWeight:'bold'}}>{cand.name}</Text>{'\ngroupe : '+cand.bloodGroup}</Text>
+                            <Text style={{ marginTop: 10, marginLeft: 5 }}><Text style={{ fontWeight: 'bold' }}>{cand.name}</Text>{'\ngroupe : ' + cand.bloodGroup}</Text>
                         </TouchableOpacity>
                     })}
                 </View>
