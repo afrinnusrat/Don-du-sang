@@ -14,6 +14,7 @@ import Config from "../../env.json";
 import axios from "axios";
 import AsyncStorage from '@react-native-community/async-storage';
 import Spinner from 'react-native-loading-spinner-overlay';
+import {Icon} from "native-base";
 
 export default function SignIn({ navigation, state, dispatch }) {
     const [userInfos, setUserInfos] = React.useState({ login: "", password: "" });
@@ -131,7 +132,7 @@ export default function SignIn({ navigation, state, dispatch }) {
                 />
                 <CustomInputText style={styles.loginInput} placeholder={t("signIn_login")} withIcon={false} onChangeText={onChangeLogin}></CustomInputText>
                 <CustomInputText style={styles.passwordInput} isPassword placeholder={t("signIn_password")} withIcon={true} onChangeText={onChangePsswd}></CustomInputText>
-                <CustomButton action={connexion} text={t("signIn_confirmBtn")} style={styles.confirmBtn}></CustomButton>
+                <CustomButton action={connexion} text={t("signIn_confirmBtn")} style={styles.confirmBtn}><Icon style={{position:"absolute",right:15,color:"white"}} name="log-in" type="Feather"  /></CustomButton>
                 <Text style={{ position: "relative", top: 15, marginRight: 140 }} onPress={() => {
                     navigation.navigate('SignUpScreen');
                 }}>{t("signIn_link1")}</Text>

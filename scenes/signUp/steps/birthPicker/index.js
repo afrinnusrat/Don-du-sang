@@ -52,7 +52,7 @@ export default function BirthPicker(props) {
                     width: 375,
                     height: 270,
                     position: "absolute",
-                    top: 50
+                    top: 55
                 }}
             ></Image>
             <View style={{ marginTop: "90%", alignItems: "center" }}>
